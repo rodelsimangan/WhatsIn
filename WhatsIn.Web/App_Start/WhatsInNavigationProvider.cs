@@ -41,6 +41,22 @@ namespace WhatsIn.Web
                         )
                 ).AddItem(
                     new MenuItemDefinition(
+                        "Categories",
+                        L("Categories"),
+                        url: "Categories",
+                        icon: "fa fa-gear",
+                        requiredPermissionName: PermissionNames.Pages_Categories
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "Locations",
+                        L("Locations"),
+                        url: "Locations",
+                        icon: "fa fa-globe",
+                        requiredPermissionName: PermissionNames.Pages_Locations
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
                         "About",
                         L("About"),
                         url: "About",
