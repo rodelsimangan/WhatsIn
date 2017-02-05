@@ -56,7 +56,9 @@ namespace WhatsIn.Web
                         "~/Abp/Framework/scripts/libs/abp.spin.js",
                         "~/Abp/Framework/scripts/libs/abp.sweet-alert.js",
 
-                        "~/Scripts/jquery.signalR-2.2.1.min.js"
+                        "~/Scripts/jquery.signalR-2.2.1.min.js",
+                        "~/Scripts/underscore.js",
+                        "~/Scripts/underscore.min.js"
                     )
                 );
 
@@ -66,12 +68,16 @@ namespace WhatsIn.Web
             bundles.Add(
                 new StyleBundle("~/Bundles/css")
                     .Include("~/css/main.css")
+                    //.IncludeDirectory("~/Common/Styles", "*.css", true)
+                    //.ForceOrdered()
                 );
 
             //~/Bundles/js
             bundles.Add(
                 new ScriptBundle("~/Bundles/js")
-                    .Include("~/js/main.js")
+                    //.Include("~/js/main.js")
+                    .IncludeDirectory("~/Common/Scripts", "*.js", true)
+                    //.ForceOrdered()
                 );
         }
     }

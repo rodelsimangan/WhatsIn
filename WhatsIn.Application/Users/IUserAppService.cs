@@ -13,6 +13,8 @@ namespace WhatsIn.Users
 
         Task<ListResultDto<UserListDto>> GetUsers();
 
-        Task CreateUser(CreateUserInput input);
+        Task UpsertUser(UserInputDto input);
+
+        Task<UserInputDto> GetUser(long id);
     }
 }

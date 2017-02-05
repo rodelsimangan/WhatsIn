@@ -16,6 +16,8 @@ namespace WhatsIn.Authorization
             }
 
             var users = pages.CreateChildPermission(PermissionNames.Pages_Users, L("Users"));
+            var categories = pages.CreateChildPermission(PermissionNames.Pages_Categories, L("Categories"));
+            var locations = pages.CreateChildPermission(PermissionNames.Pages_Locations, L("Locations"));
 
             //Host permissions
             var tenants = pages.CreateChildPermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);

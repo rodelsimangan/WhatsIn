@@ -1,0 +1,52 @@
+﻿@using WhatsIn.Users
+@using WhatsIn.Web.Models.Common.Modals
+
+@Html.Partial("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewUser")))
+
+@model  WhatsIn.Web.Models.UserInputViewModel
+
+    <div class="modal-body">
+        <form role="form" novalidate class="form-validation">
+            <h3>Basic Information</h3>
+            @if (Model.IsEditMode)
+            {
+                <input type="hidden" name="Id" value="@Model.Id" />
+            }
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input class="form-control" type="text" name="Name" required maxlength="@WhatsIn.Users.User.MaxNameLength" value="@Model.Name">
+                <label>@L("Name")</label>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="Surname" class="form-control" required maxlength="@WhatsIn.Users.User.MaxSurnameLength"  value="@Model.Surname">
+                <label>@L("Surname")</label>
+            </div>
+            <h3>Login Information</h3>
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="email" name="EmailAddress" class="form-control" required maxlength="@WhatsIn.Users.User.MaxEmailAddressLength" value="@Model.EmailAddress">
+                <label>@L("EmailAddress")</label>
+            </div>
+            @if (!Model.IsEditMode)
+            {
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input id="EditUser_Password" class="form-control" type="password" name="Password" required>
+                <label>@L("Password")</label>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input class="form-control" type="password" name="PasswordRepeat" required equalto="#EditUser_Password">
+                <label>@L("PasswordRepeat")</label>
+            </div>
+            }
+            else
+            {
+                <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                    <input type="hidden" name="Password" value="@Model.Password">
+                </div>
+                
+            }
+
+        </form>
+    </div>
+
+    @Html.Partial("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
