@@ -110,6 +110,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicatonServices\Categories\CategoryAppService.cs" />
+    <Compile Include="ApplicatonServices\Categories\ICategoryAppService.cs" />
     <Compile Include="Dto\LocationDto.cs" />
     <Compile Include="Dto\ProvinceDto.cs" />
     <Compile Include="Dto\CategoryDto.cs" />
@@ -147,9 +149,7 @@
       <Name>WhatsIn.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ApplicatonServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

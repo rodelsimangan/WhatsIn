@@ -18,5 +18,27 @@
             _upsertUserModal.open({ id: userid });
         });
 
+        var _userService = abp.services.app.user;
+
+        $('.DeleteUserButton').click(function (e) {
+            e.preventDefault();
+
+            var userid = $(this).prop('id');
+
+            abp.message.confirm(
+                app.localize('AreYouSureToDeleteThePerson'),
+                function (isConfirmed) {
+                    if (isConfirmed) {
+                         _userService.deleteUser(userid).done(function () {
+                            abp.notify.info(app.localize('SuccessfullyDeleted'));
+                            location.reload();
+                        });
+                        alert(userid);
+                    } 
+                }
+            );
+        });
     });
+
+  
 })();

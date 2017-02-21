@@ -7,7 +7,6 @@
         var _$form = null;
 
         this.init = function (modalManager) {
-            alert("init first");
             _modalManager = modalManager;
 
             _$form = _modalManager.getModal().find('form');
@@ -16,7 +15,6 @@
 
         this.save = function () {
 
-            alert("save first");
             if (!_$form.valid()) {
                 return;
             }

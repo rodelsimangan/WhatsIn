@@ -55,7 +55,8 @@ namespace WhatsIn.Users
 
         public async Task<UserInputDto> GetUser(long id)
         {
-            var user = await Task.Run(() => { return _userRepository.GetAll().AsNoTracking().FirstOrDefaultAsync(u => u.Id == id); });
+            var user = await _userRepository.GetAll().AsNoTracking<User>().SingleAsync(u => u.Id == id);
+
             var dto = user.MapTo<UserInputDto>();
             dto.IsEditMode = true;
 
@@ -70,20 +71,56 @@ namespace WhatsIn.Users
 
         public async Task UpsertUser(UserInputDto input)
         {
-            try { 
-            var user = input.MapTo<User>();
-            if (input.Id == 0)
+            try
             {
-                user.TenantId = AbpSession.TenantId;
-                user.Password = new PasswordHasher().HashPassword(input.Password);
-                user.IsEmailConfirmed = true;
+                await Task.Run(() =>
+                {
+                    var userInput = input.MapTo<User>();
+                    if (input.Id == 0)
+                    {
+                        userInput.TenantId = AbpSession.TenantId;
+                        userInput.Password = new PasswordHasher().HashPassword(input.Password);
+                        userInput.IsEmailConfirmed = true;
 
-                CheckErrors(await UserManager.CreateAsync(user));
+                        //CheckErrors(await UserManager.CreateAsync(userInput));
+                    }
+                    else
+                    {
+
+                        //var user = await _userRepository.GetAll().AsNoTracking().SingleAsync(u => u.Id == input.Id);
+                        /* 
+                         user.UserName = input.UserName;
+                         user.Name = input.Name;
+                         user.Surname = input.Surname;
+                         user.EmailAddress = input.EmailAddress;
+                        userInput.IsActive = input.IsActive;
+                        userInput.TenantId = AbpSession.TenantId;
+                        userInput.IsEmailConfirmed = true;
+                        */
+                        userInput.TenantId = AbpSession.TenantId;
+                        userInput.Password = new PasswordHasher().HashPassword(input.Password);
+                        //CheckErrors(await UserManager.UpdateAsync(userInput));
+                    }
+                    _userRepository.InsertOrUpdate(userInput);
+                });
             }
-            else
-                CheckErrors(await UserManager.UpdateAsync(user));
+            catch (Exception ex)
+            {
+                throw ex;
             }
-            catch(Exception ex)
+        }
+
+        public async Task DeleteUser(long id)
+        {
+            try
+            {
+                if (id > 0)
+                {
+                    var user = await _userRepository.GetAll().AsNoTracking().SingleAsync(u => u.Id == id);
+                    await _userRepository.DeleteAsync(user);
+                }
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

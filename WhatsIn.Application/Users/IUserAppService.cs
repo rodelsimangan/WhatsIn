@@ -16,5 +16,7 @@ namespace WhatsIn.Users
         Task UpsertUser(UserInputDto input);
 
         Task<UserInputDto> GetUser(long id);
+
+        Task DeleteUser(long id);
     }
 }

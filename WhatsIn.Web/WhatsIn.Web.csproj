@@ -531,6 +531,7 @@
     <Content Include="Views\Common\Modals\_ModalHeader.cshtml" />
     <Content Include="Views\Common\Modals\_ModalFooterWithSaveAndCancel.cshtml" />
     <Content Include="Scripts\underscore.min.map" />
+    <Content Include="Views\Users\index.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -10,6 +10,7 @@ namespace WhatsIn.Core.Entities
 {
     public abstract class EntityBase : Entity<long>
     {
+        public override long Id { get; set; }
         public virtual long CreatedBy { get; set; }
         public virtual DateTime DateCreated { get; set; }
         public virtual long ModifiedBy { get; set; }
