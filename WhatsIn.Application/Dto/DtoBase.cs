@@ -11,11 +11,13 @@ using Abp.AutoMapper;
 namespace WhatsIn.Application.Dto
 {
     [Serializable]
-    public abstract class DtoBase:EntityDto<long>
+    public abstract class DtoBase : EntityDto<long>
     {
-        public long CreatedBy { get; set; }
-        public DateTime DateCreated { get; set; }
-        public long ModifiedBy { get; set; }
-        public DateTime DateModified { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsEditMode { get; set; }
+        public long? CreatedBy { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public long? ModifiedBy { get; set; }
+        public DateTime? DateModified { get; set; }
     }
 }

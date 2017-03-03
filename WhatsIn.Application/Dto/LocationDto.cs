@@ -9,7 +9,7 @@ using WhatsIn.Core.Entities;
 
 namespace WhatsIn.Application.Dto
 {
-    [AutoMapFrom(typeof(Location))]
+    [AutoMap(typeof(Location))]
     public class LocationDto : DtoBase
     {
         public long ProvinceId { get; set; }

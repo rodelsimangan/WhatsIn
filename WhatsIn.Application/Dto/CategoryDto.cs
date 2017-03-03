@@ -9,7 +9,7 @@ using WhatsIn.Core.Entities;
 
 namespace WhatsIn.Application.Dto
 {
-    [AutoMapFrom(typeof(Category))]
+    [AutoMap(typeof(Category))]
     public class CategoryDto : DtoBase
     {
         public string Name { get; set; }

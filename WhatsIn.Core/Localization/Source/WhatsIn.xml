@@ -58,6 +58,10 @@
     <text name="Categories" value="Categories" />
     <text name="Provinces" value="Provinces" />
     <text name="Locations" value="Locations" />
-    <text name="AreYouSureToDeleteThePerson" value="Are you sure to delete this record?" />
+    <text name="AreYouSureToDeleteTheRecord" value="Are you sure to delete this record?" />
+    <text name="CreateNewCategory" value="Create New Category" />
+    <text name="CreateNewProvince" value="Create New Province" />
+    <text name="CreateNewLocation" value="Create New Location" />
+    <text name="Description" value="Description" />
   </texts>
 </localizationDictionary>

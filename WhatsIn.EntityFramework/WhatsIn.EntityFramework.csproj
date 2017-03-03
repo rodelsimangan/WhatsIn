@@ -192,6 +192,14 @@
     <Compile Include="Migrations\201612051741057_Upgrade_To_Abp_Zero_v1_1.Designer.cs">
       <DependentUpon>201612051741057_Upgrade_To_Abp_Zero_v1_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702220049399_category_location_province.cs" />
+    <Compile Include="Migrations\201702220049399_category_location_province.Designer.cs">
+      <DependentUpon>201702220049399_category_location_province.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702230743300_update_auditlog_fields.cs" />
+    <Compile Include="Migrations\201702230743300_update_auditlog_fields.Designer.cs">
+      <DependentUpon>201702230743300_update_auditlog_fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="WhatsInDataModule.cs" />
@@ -268,6 +276,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612051741057_Upgrade_To_Abp_Zero_v1_1.resx">
       <DependentUpon>201612051741057_Upgrade_To_Abp_Zero_v1_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702220049399_category_location_province.resx">
+      <DependentUpon>201702220049399_category_location_province.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702230743300_update_auditlog_fields.resx">
+      <DependentUpon>201702230743300_update_auditlog_fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

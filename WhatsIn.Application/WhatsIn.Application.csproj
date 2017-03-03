@@ -110,8 +110,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicatonServices\Categories\CategoryAppService.cs" />
-    <Compile Include="ApplicatonServices\Categories\ICategoryAppService.cs" />
+    <Compile Include="ApplicationServices\Locations\LocationAppService.cs" />
+    <Compile Include="ApplicationServices\Locations\ILocationAppService.cs" />
+    <Compile Include="ApplicationServices\Provinces\ProvinceAppService.cs" />
+    <Compile Include="ApplicationServices\Provinces\IProvinceAppService.cs" />
+    <Compile Include="ApplicationServices\Categories\CategoryAppService.cs" />
+    <Compile Include="ApplicationServices\Categories\ICategoryAppService.cs" />
     <Compile Include="Dto\LocationDto.cs" />
     <Compile Include="Dto\ProvinceDto.cs" />
     <Compile Include="Dto\CategoryDto.cs" />

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
@@ -11,7 +12,6 @@ using Abp.Domain.Repositories;
 using WhatsIn.Authorization;
 using WhatsIn.Users.Dto;
 using WhatsIn.Authorization.Roles;
-using System;
 
 namespace WhatsIn.Users
 {

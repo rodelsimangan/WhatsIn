@@ -465,6 +465,12 @@
       <DependentUpon>Login.css</DependentUpon>
     </Content>
     <Content Include="Views\Account\Register.js" />
+    <Content Include="Views\Categories\Index.js" />
+    <Content Include="Views\Categories\_UpsertCategoryModal.js" />
+    <Content Include="Views\Locations\_Locations.js" />
+    <Content Include="Views\Locations\Index.js" />
+    <Content Include="Views\Locations\_UpsertLocationModal.js" />
+    <Content Include="Views\Locations\_UpsertProvinceModal.js" />
     <Content Include="Views\Tenants\Index.js" />
     <Content Include="Views\Users\Index.js" />
     <Content Include="Views\Users\_UpsertUserModal.js" />
@@ -490,6 +496,9 @@
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Models\Admin\ProvinceViewModel.cs" />
+    <Compile Include="Models\Admin\LocationViewModel.cs" />
+    <Compile Include="Models\Admin\CategoryViewModel.cs" />
     <Compile Include="Models\Common\LookupModalViewModel.cs" />
     <Compile Include="Models\Common\ModalHeaderViewModel.cs" />
     <Compile Include="Models\Layout\UserMenuOrLoginLinkViewModel.cs" />
@@ -532,6 +541,15 @@
     <Content Include="Views\Common\Modals\_ModalFooterWithSaveAndCancel.cshtml" />
     <Content Include="Scripts\underscore.min.map" />
     <Content Include="Views\Users\index.less" />
+    <Content Include="Views\Categories\_UpsertCategoryModal.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\index.less" />
+    <Content Include="Views\Locations\_UpsertProvinceModal.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\Locations\index.less" />
+    <Content Include="Views\Locations\_Locations.cshtml" />
+    <Content Include="Views\Locations\_Locations.less" />
+    <Content Include="Views\Locations\_UpsertLocationModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -559,8 +577,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Categories\" />
-    <Folder Include="Views\Locations\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Abp\Framework\scripts\abp.d.ts" />

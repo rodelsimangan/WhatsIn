@@ -3,15 +3,72 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
+
+using Abp.Web.Mvc.Authorization;
+using Abp.AutoMapper;
+
+using WhatsIn.Application.Services;
+using WhatsIn.Application.Dto;
+using WhatsIn.Web.Models;
 
 namespace WhatsIn.Web.Controllers
 {
-    public class LocationsController : Controller
+    public class LocationsController : WhatsInControllerBase
     {
-        // GET: Locations
-        public ActionResult Index()
+        private readonly ILocationAppService _locationAppService;
+        private readonly IProvinceAppService _provinceAppService;
+
+        public LocationsController(ILocationAppService locationAppService, IProvinceAppService provinceAppService)
         {
-            return View();
+            _locationAppService = locationAppService;
+            _provinceAppService = provinceAppService;
+        }
+
+        public async Task<ActionResult> Index()
+        {
+            var output = await _provinceAppService.GetProvinces(null, false);
+            return View(output);
+        }
+
+        public async Task<PartialViewResult> UpsertProvinceModal(long? id)
+        {
+            ProvinceViewModel model = new ProvinceViewModel(new ProvinceDto());
+            if (id.HasValue)
+            {
+                var dto = await _provinceAppService.GetProvince(id.Value);
+                model = new ProvinceViewModel(dto);
+            }
+            return PartialView("_UpsertProvinceModal", model);
+        }
+
+        /*   public async Task<ActionResult> GetLocations(int provinceId)
+           {
+               var output = await _locationAppService.GetLocations(provinceId , null, false);
+               return View(output);
+           } */
+
+        public async Task<PartialViewResult> GetLocations(long? provinceId)
+        {
+            List<LocationViewModel> list = new List<LocationViewModel>();// (new LocationDto())>;
+            if (provinceId.HasValue)
+            {
+                var dto = await _locationAppService.GetLocations(provinceId.Value, null, false);
+                list = dto.MapTo<List<LocationViewModel>>();
+                //model = new LocationViewModel(dto);
+            }
+            return PartialView("_Locations", list);
+        }
+
+        public async Task<PartialViewResult> UpsertLocationModal(long? id, long? provinceId)
+        {
+            LocationViewModel model = new LocationViewModel(new LocationDto());
+            if (id.HasValue)
+            {
+                var dto = await _locationAppService.GetLocation(id.Value);
+                model = new LocationViewModel(dto);
+            }
+            return PartialView("_UpsertLocationModal", model);
         }
     }
 }
