@@ -50,14 +50,17 @@ namespace WhatsIn.Web.Controllers
 
         public async Task<PartialViewResult> GetLocations(long? provinceId)
         {
-            List<LocationViewModel> list = new List<LocationViewModel>();// (new LocationDto())>;
-            if (provinceId.HasValue)
+            //List<LocationViewModel> list = new List<LocationViewModel>();// (new LocationDto())>;
+            try
             {
-                var dto = await _locationAppService.GetLocations(provinceId.Value, null, false);
-                list = dto.MapTo<List<LocationViewModel>>();
-                //model = new LocationViewModel(dto);
+                var output = await _locationAppService.GetLocations(provinceId.Value, null, false);
+                ViewData["provinceId"] = provinceId;
+                return PartialView("_Locations", output);
             }
-            return PartialView("_Locations", list);
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<PartialViewResult> UpsertLocationModal(long? id, long? provinceId)
@@ -67,6 +70,11 @@ namespace WhatsIn.Web.Controllers
             {
                 var dto = await _locationAppService.GetLocation(id.Value);
                 model = new LocationViewModel(dto);
+            }
+            else
+            {
+                if (provinceId.HasValue)
+                    model.ProvinceId = provinceId.Value;
             }
             return PartialView("_UpsertLocationModal", model);
         }

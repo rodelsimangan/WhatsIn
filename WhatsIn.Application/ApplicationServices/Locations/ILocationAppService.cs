@@ -10,7 +10,7 @@ namespace WhatsIn.Application.Services
 {
     public interface ILocationAppService : IApplicationService
     {
-        Task<List<LocationDto>> GetLocations(long provinceId, string filter, bool isDeleted);
+        Task<List<LocationDto>> GetLocations(long? provinceId, string filter, bool isDeleted);
         Task<LocationDto> GetLocation(long id);
         Task UpsertLocation(LocationDto input);
         Task DeleteLocation(long id);

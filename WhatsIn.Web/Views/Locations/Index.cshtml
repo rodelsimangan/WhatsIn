@@ -90,8 +90,9 @@
             <div class="col-xs-12 text-right">
                 <button id="CreateNewProvinceButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewProvince")</button>
             </div>
-            <div class="rTable grid-container">
-                <div class="col-md-12">
+
+            <div class="grid-container">
+                <div class="rTable">
                     <div class="rTableRow">
                         <div class="rTableHead">&nbsp;</div>
                         <div class="rTableHead">@L("Name")</div>
@@ -102,8 +103,8 @@
                 </div>
                 @foreach (var item in Model)
                 {
-                    <div id="@item.Id" class="rTableRow grid-parent" expandgrid="0">
-                        <div class="col-md-12">
+                    <div id="@item.Id" class="rTable grid-parent text-center" expandgrid="0">
+                        <div id="@item.Id" class="rTableRow" expandgrid="0">
                             <div class="rTableCell grid-collapse-expand">
                                 <button class="btn btn-circle btn-xs red ExpandCollapseButton-@item.Id"><span class="fa fa-chevron-right"></span></button>
                             </div>
@@ -116,14 +117,15 @@
                             </div>
                         </div>
                     </div>
-                    <div id="@item.Id" class="rTableRow grid-child">
-                        <div class="rTableCell">
-                            <div class="col-md-12" id="DIV-LOCATIONS">
+                    <div class="rTable grid-child">
+                        <div id="@item.Id" class="rTableRow" style="width:100%">
+                            <div id="DIV-LOCATIONS">
                                 @*Html.Action("GetLocations", item.Id);*@
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 }
+
             </div>
         </div>
     </div>

@@ -7,11 +7,18 @@
             modalClass: '_UpsertLocationModal'
         });
 
-        $('#CreateNewLocationButton').click(function (e) {
+        $('#CreateNewLocationButton').on('click', function (e) {
+            alert("test");
+            e.preventDefault();
+/*            var provinceid = $(this).prop('provinceid');
+            _upsertLocationModal.open({ provinceid: provinceid }); */
+        });
+
+        /*$('#CreateNewLocationButton').click(function (e) {
             e.preventDefault();
             alert("Add");
-            _upsertLocationModal.open();
-        });
+            //_upsertLocationModal.open();
+        });*/
 
         $('.UpdateLocationButton').click(function (e) {
             e.preventDefault();

@@ -7,23 +7,21 @@
             modalClass: 'UpsertProvinceModal'
         });
 
-        var _upsertLocationModal = new app.ModalManager({
+/*        var _upsertLocationModal = new app.ModalManager({
             viewUrl: abp.appPath + 'Locations/UpsertLocationModal',
             scriptUrl: abp.appPath + 'Views/Locations/_UpsertLocationModal.js',
             modalClass: 'UpsertLocationModal'
         });
 
-        $('#CreateNewProvinceButton').click(function (e) {
-            e.preventDefault();
-            _upsertProvinceModal.open();
-        });
+    
 
         $('#CreateNewLocationButton').click(function (e) {
             e.preventDefault();
+            alert("test");
             var provinceid = $(this).prop('provinceid');
             _upsertLocationModal.open({ provinceid: provinceid} );
         });
-        
+  */      
         $('.UpdateProvinceButton').click(function (e) {
             e.preventDefault();
             var provinceid = $(this).prop('id');
@@ -53,10 +51,10 @@
 
         var expandgrid;
         $(".grid-parent").click(function () {
-
+            
             var provinceid = $(this).prop('id');
+            
             $gridparent = $(this);
-           
             //getting the next element
             $gridchild = $gridparent.next();
 
@@ -70,6 +68,24 @@
                 expandgrid = false;
                 $gridparent.attr("expandgrid", "0");
                 $btn.html('<span class="fa fa-chevron-right"></span>');
+            }
+
+            if (expandgrid == true)
+            {
+                $.ajax({
+                    type: "POST",
+                    url: abp.appPath + 'Locations/GetLocations',
+                    data: { provinceId: provinceid },
+                    success: function (response) {
+                        $('#DIV-LOCATIONS').html(response);
+                    },
+                });
+
+          
+
+                /*$('#btnBack').on('click', function () {
+                    alert('test');
+                });*/
             }
 
             //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.

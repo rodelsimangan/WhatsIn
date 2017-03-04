@@ -39,11 +39,11 @@ namespace WhatsIn.Application.Services
             }
         }
 
-        public async Task<List<LocationDto>> GetLocations(long provinceId, string filter, bool isDeleted)
+        public async Task<List<LocationDto>> GetLocations(long? provinceId, string filter, bool isDeleted)
         {
             try
             {
-                var users = await Task.Run(() =>
+                var locations = await Task.Run(() =>
             {
                 var query = from q in _locationRepository.GetAll()
                             where (string.IsNullOrEmpty(filter) || (q.Description.Contains(filter) || q.Name.Contains(filter)))
@@ -52,8 +52,7 @@ namespace WhatsIn.Application.Services
 
                 return query.ToList();
             });
-                users.ForEach(i => i.ProvinceId = provinceId);
-                return users.MapTo<List<LocationDto>>();
+                return locations.MapTo<List<LocationDto>>();
             }
             catch (Exception ex)
             {
