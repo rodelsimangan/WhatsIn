@@ -12,7 +12,6 @@
 </div>
 <div class="rTable grid-container">
     <div class="rTableRow">
-        <div class="rTableHead">&nbsp;</div>
         <div class="rTableHead">@L("Name")</div>
         <div class="rTableHead">@L("Description")</div>
         <div class="rTableHead">&nbsp;</div>
@@ -28,13 +27,7 @@
                 <button data-toggle="modal" id="@item.Id" class="btn btn-circle btn-xs red UpdateLocationButton"><span class="fa fa-edit"></span></button>
                 <button id="@item.Id" class="btn btn-circle btn-xs red DeleteLocationButton-@item.Id"><span class="fa fa-trash"></span></button>
             </div>
-        </div>
-                <div id="@item.Id" class="rTableRow grid-child">
-                    <div class="rTableCell">&nbsp;</div>
-                    <div class="rTableCell">&nbsp;</div>
-                    <div class="rTableCell">&nbsp;</div>
-                    <div class="rTableCell">&nbsp;</div>
-                </div>
+        </div>           
     }
 </div>
 

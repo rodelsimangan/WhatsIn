@@ -26,15 +26,19 @@
 
         .rTableCell {
             display: table-cell;
-            padding: 3px 10px 15px;
+            /*padding: 10px 70px 10px;*/
+            padding-top:10px;
+            padding-bottom:10px;
             border-bottom: 1px solid #999999;
+            /*border-left: 1px solid #999999;*/
         }
 
         .rTableHead {
             display: table-cell;
-            padding: 10px 10px 10px;
+            /*padding: 10px 100px 10px;*/
             border-bottom: 1px solid #999999;
             font-weight: bold;
+            /*border-left: 1px solid #999999;*/
         }
 
         .rTableHeading {
@@ -94,31 +98,31 @@
             <div class="grid-container">
                 <div class="rTable">
                     <div class="rTableRow">
-                        <div class="rTableHead">&nbsp;</div>
-                        <div class="rTableHead">@L("Name")</div>
-                        <div class="rTableHead">@L("Description")</div>
+                        <div class="rTableHead" style="width:10%;"></div>
+                        <div class="rTableHead" style="width:40%;">@L("Name")</div>
+                        <div class="rTableHead" style="width:40%;">@L("Description")</div>
                         <div class="rTableHead">&nbsp;</div>
                         <div class="rTableHead">&nbsp;</div>
                     </div>
                 </div>
                 @foreach (var item in Model)
                 {
-                    <div id="@item.Id" class="rTable grid-parent text-center" expandgrid="0">
+                    <div id="@item.Id" class="rTable grid-parent" expandgrid="0">
                         <div id="@item.Id" class="rTableRow" expandgrid="0">
-                            <div class="rTableCell grid-collapse-expand">
+                            <div class="rTableCell grid-collapse-expand text-left" style="width:10%;">
                                 <button class="btn btn-circle btn-xs red ExpandCollapseButton-@item.Id"><span class="fa fa-chevron-right"></span></button>
                             </div>
-                            <div class="rTableCell">@item.Name</div>
-                            <div class="rTableCell">@item.Description</div>
+                            <div class="rTableCell text-left" style="width:40%;">@item.Name</div>
+                            <div class="rTableCell text-left" style="width:40%;">@item.Description</div>
                             <div class="rTableCell"><input type="hidden" class="userId" /></div>
-                            <div class="rTableCell">
+                            <div class="rTableCell text-right">
                                 <button data-toggle="modal" id="@item.Id" class="btn btn-circle btn-xs red UpdateProvinceButton"><span class="fa fa-edit"></span></button>
                                 <button id="@item.Id" class="btn btn-circle btn-xs red DeleteProvinceButton-@item.Id"><span class="fa fa-trash"></span></button>
                             </div>
                         </div>
                     </div>
                     <div class="rTable grid-child">
-                        <div id="@item.Id" class="rTableRow" style="width:100%">
+                        <div id="@item.Id" class="text-right" style="width:90%">
                             <div id="DIV-LOCATIONS">
                                 @*Html.Action("GetLocations", item.Id);*@
                             </div>
