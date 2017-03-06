@@ -4,72 +4,12 @@
 @using WhatsIn.Application.Dto
 @model List<ProvinceDto>
 @{
-    ViewBag.ActiveMenu = "Province"; //The menu item will be active for this page.
+    ViewBag.ActiveMenu = "Locations"; //The menu item will be active for this page.
     ViewBag.CurrentPageName = PageNames.App.Administration.Locations;
 }
 @section Styles
 {
-    <style type="text/css">
-        .rTable {
-            display: table;
-            width: 100%;
-        }
-
-        .rTableRow {
-            display: table-row;
-        }
-
-        .rTableHeading {
-            display: table-header-group;
-            background-color: #ddd;
-        }
-
-        .rTableCell {
-            display: table-cell;
-            /*padding: 10px 70px 10px;*/
-            padding-top:10px;
-            padding-bottom:10px;
-            border-bottom: 1px solid #999999;
-            /*border-left: 1px solid #999999;*/
-        }
-
-        .rTableHead {
-            display: table-cell;
-            /*padding: 10px 100px 10px;*/
-            border-bottom: 1px solid #999999;
-            font-weight: bold;
-            /*border-left: 1px solid #999999;*/
-        }
-
-        .rTableHeading {
-            display: table-header-group;
-            background-color: #ddd;
-            font-weight: bold;
-        }
-
-        .rTableFoot {
-            display: table-footer-group;
-            font-weight: bold;
-            background-color: #ddd;
-        }
-
-        .rTableBody {
-            display: table-row-group;
-        }
-
-        .grid-container .grid-collapse-expand {
-            /* background-color:#d3d3d3;
-            padding: 2px;
-            font-weight: bold;
-           */
-            cursor: pointer;
-        }
-
-        .grid-container .grid-child {
-            display: none;
-            padding: 5px;
-        }
-    </style>
+  @Html.IncludeStyle("~/css/Grid.css")
 }
 @section scripts
 {

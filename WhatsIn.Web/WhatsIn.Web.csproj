@@ -378,6 +378,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="css\Grid.css" />
     <Content Include="css\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
