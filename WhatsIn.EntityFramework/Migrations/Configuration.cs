@@ -34,6 +34,7 @@ namespace WhatsIn.Migrations
                 //You can add seed for tenant databases and use Tenant property...
             }
 
+            new StoreRoleBuilder(context, 1).Create();
             context.SaveChanges();
         }
     }

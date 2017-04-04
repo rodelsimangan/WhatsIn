@@ -98,10 +98,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Gallery.cs" />
+    <Compile Include="Entities\Promotion.cs" />
+    <Compile Include="Entities\Logo.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Province.cs" />
-    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Store.cs" />
     <Compile Include="WhatsInConsts.cs" />
     <Compile Include="WhatsInCoreModule.cs" />
     <Compile Include="Authorization\WhatsInAuthorizationProvider.cs" />
@@ -131,7 +135,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Localization\Source\WhatsIn-zh-CN.xml" />
     <EmbeddedResource Include="Localization\Source\WhatsIn-tr.xml" />
-    <EmbeddedResource Include="Localization\Source\WhatsIn.xml" />
+    <EmbeddedResource Include="Localization\Source\WhatsIn.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Source\WhatsIn-lt.xml" />
   </ItemGroup>
   <ItemGroup>

@@ -11,6 +11,12 @@ namespace WhatsIn.Web.Navigation
                 public const string Categories = "Administration.Categories";
                 public const string Locations = "Administration.Locations";
             }
+            public static class Store
+            {
+                public const string StoreDetail = "Store.StoreDetail";
+                public const string Promotions = "Store.Promotions";
+                public const string Galleries = "Store.Galleries";
+            }
         }
     }
 }

@@ -110,12 +110,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServices\Galleries\IGalleryAppService.cs" />
+    <Compile Include="ApplicationServices\Galleries\GalleryAppService.cs" />
+    <Compile Include="ApplicationServices\Promotions\IPromotionAppService.cs" />
+    <Compile Include="ApplicationServices\Promotions\PromotionAppService.cs" />
+    <Compile Include="ApplicationServices\Logo\ILogoAppService.cs" />
+    <Compile Include="ApplicationServices\Logo\LogoAppService.cs" />
+    <Compile Include="ApplicationServices\Stores\StoreAppService.cs" />
+    <Compile Include="ApplicationServices\Stores\IStoreAppService.cs" />
     <Compile Include="ApplicationServices\Locations\LocationAppService.cs" />
     <Compile Include="ApplicationServices\Locations\ILocationAppService.cs" />
     <Compile Include="ApplicationServices\Provinces\ProvinceAppService.cs" />
     <Compile Include="ApplicationServices\Provinces\IProvinceAppService.cs" />
     <Compile Include="ApplicationServices\Categories\CategoryAppService.cs" />
     <Compile Include="ApplicationServices\Categories\ICategoryAppService.cs" />
+    <Compile Include="Dto\GalleryDto.cs" />
+    <Compile Include="Dto\PromotionDto.cs" />
+    <Compile Include="Dto\LogoDto.cs" />
+    <Compile Include="Dto\StoreDto.cs" />
     <Compile Include="Dto\LocationDto.cs" />
     <Compile Include="Dto\ProvinceDto.cs" />
     <Compile Include="Dto\CategoryDto.cs" />

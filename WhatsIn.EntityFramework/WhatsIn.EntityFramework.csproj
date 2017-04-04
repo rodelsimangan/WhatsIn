@@ -200,8 +200,21 @@
     <Compile Include="Migrations\201702230743300_update_auditlog_fields.Designer.cs">
       <DependentUpon>201702230743300_update_auditlog_fields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704030711409_Added_Store_Logo_Promotion.cs" />
+    <Compile Include="Migrations\201704030711409_Added_Store_Logo_Promotion.Designer.cs">
+      <DependentUpon>201704030711409_Added_Store_Logo_Promotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704032346284_Added_Gallery.cs" />
+    <Compile Include="Migrations\201704032346284_Added_Gallery.Designer.cs">
+      <DependentUpon>201704032346284_Added_Gallery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704040031018_Added_LogoPath_To_Store.cs" />
+    <Compile Include="Migrations\201704040031018_Added_LogoPath_To_Store.Designer.cs">
+      <DependentUpon>201704040031018_Added_LogoPath_To_Store.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\StoreRoleBuilder.cs" />
     <Compile Include="WhatsInDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
     <Compile Include="Migrations\SeedData\DefaultLanguagesCreator.cs" />
@@ -282,6 +295,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702230743300_update_auditlog_fields.resx">
       <DependentUpon>201702230743300_update_auditlog_fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704030711409_Added_Store_Logo_Promotion.resx">
+      <DependentUpon>201704030711409_Added_Store_Logo_Promotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704032346284_Added_Gallery.resx">
+      <DependentUpon>201704032346284_Added_Gallery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704040031018_Added_LogoPath_To_Store.resx">
+      <DependentUpon>201704040031018_Added_LogoPath_To_Store.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

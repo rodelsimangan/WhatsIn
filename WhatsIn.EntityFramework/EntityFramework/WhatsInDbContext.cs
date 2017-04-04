@@ -14,6 +14,10 @@ namespace WhatsIn.EntityFramework
         public virtual IDbSet<Category> Categories { get; set; }
         public virtual IDbSet<Location> Locations { get; set; }
         public virtual IDbSet<Province> Provinces { get; set; }
+        public virtual IDbSet<Store> Stores { get; set; }
+        public virtual IDbSet<Logo> Logos { get; set; }
+        public virtual IDbSet<Promotion> Promotions { get; set; }
+        public virtual IDbSet<Gallery> Galleries { get; set; }
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not

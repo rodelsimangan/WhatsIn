@@ -1,0 +1,31 @@
+﻿@using WhatsIn.Users
+@using WhatsIn.Web.Models.Common.Modals
+
+@Html.Partial("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewGallery")))
+
+@model  WhatsIn.Web.Models.GalleryViewModel
+
+<div class="modal-body">
+    <form role="form" novalidate class="form-validation">
+        <h3>Basic Information</h3>
+        @if (Model.IsEditMode)
+            {
+            <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="hidden" name="DateCreated" value="@Model.DateCreated" />
+                <input type="hidden" name="CreatedBy" value="@Model.CreatedBy" />
+        }
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <img id="imgGallery" alt="No Image" style="height:100px; width:100px;" />
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="hidden" id='uploadedImgGallery' data-bind="value: GalleryPath" />
+            <input type="file" id="files" data-role="upload" data-multiple="false" accept="image/jpg"
+                   data-async='{"saveUrl": "UploadImageGallery","autoUpload": "true"}' data-success="onUploadImageGallerySuccess" data-s name="files" />
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <label>@L("CreateNewGallery")</label>
+        </div>
+    </form>
+</div>
+
+@Html.Partial("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
