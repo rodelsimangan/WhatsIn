@@ -1,44 +1,46 @@
-﻿(function() {
-    $(function() {
+﻿(function () {
+    $(function () {
 
-        var _upsertCategoryModal = new app.ModalManager({
-            viewUrl: abp.appPath + 'Categories/UpsertCategoryModal',
-            scriptUrl: abp.appPath + 'Views/Categories/_UpsertCategoryModal.js',
-            modalClass: 'UpsertCategoryModal'
+        var _upsertPromotionModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'Promotions/UpsertPromotionModal',
+            scriptUrl: abp.appPath + 'Views/Promotions/_UpsertPromotionModal.js',
+            modalClass: 'UpsertPromotionModal'
         });
 
-        $('#CreateNewCategoryButton').click(function (e) {
+        $('#CreateNewPromotionButton').click(function (e) {
             e.preventDefault();
-            _upsertCategoryModal.open();
+            _upsertPromotionModal.open();
         });
 
-        $('.UpdateCategoryButton').click(function (e) {
+        $('.UpdatePromotionButton').click(function (e) {
             e.preventDefault();
-            var categoryid = $(this).prop('id');
-            _upsertCategoryModal.open({ id: categoryid });
+            var promotionid = $(this).prop('id');
+            _upsertPromotionModal.open({ id: promotionid });
         });
 
-        var _categoryService = abp.services.app.category;
+        var _promotionService = abp.services.app.promotion;
 
-        $('.DeleteCategoryButton').click(function (e) {
+        $('.DeletePromotionButton').click(function (e) {
             e.preventDefault();
 
-            var categoryid = $(this).prop('id');
+            var promotionid = $(this).prop('id');
 
             abp.message.confirm(
-                app.localize('AreYouSureToDeleteTheCategory'),
+                app.localize('AreYouSureToDeleteThePromotion'),
                 function (isConfirmed) {
                     if (isConfirmed) {
-                         _categoryService.deleteCategory(categoryid).done(function () {
+                        _promotionService.deletePromotion(promotionid).done(function () {
                             abp.notify.info(app.localize('SuccessfullyDeleted'));
                             location.reload();
                         });
-                        alert(categoryid);
-                    } 
+                        alert(promotionid);
+                    }
                 }
             );
         });
+
+      
     });
 
-  
+
 })();

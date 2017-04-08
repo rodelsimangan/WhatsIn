@@ -67,6 +67,7 @@
     <text name="StoreDetail" value="Store Detail" />
     <text name="Promotion" value="Promotion" />
     <text name="Promotions" value="Promotions" />
+    <text name="CreateNewPromotion" value="Add Image to Promotions" />
     <text name="Gallery" value="Gallery" />
     <text name="Galleries" value="Galleries" />
     <text name="CreateNewGallery" value="Add Image to Gallery" />

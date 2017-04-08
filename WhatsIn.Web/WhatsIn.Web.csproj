@@ -469,7 +469,7 @@
     <Content Include="Views\Galleries\Index.js" />
     <Content Include="Views\Galleries\_UpsertGalleryModal.js" />
     <Content Include="Views\Promotions\Index.js" />
-    <Content Include="Views\Promotions\_UpsertCategoryModal.js" />
+    <Content Include="Views\Promotions\_UpsertPromotionModal.js" />
     <Content Include="Views\Stores\Index.js" />
     <Content Include="Views\Stores\_UpsertCategoryModal.js" />
     <Content Include="Views\Categories\Index.js" />
@@ -567,12 +567,12 @@
     <Content Include="Views\Stores\_UpsertCategoryModal.cshtml" />
     <Content Include="Views\Stores\Index.cshtml" />
     <Content Include="Views\Stores\index.less" />
-    <Content Include="Views\Promotions\_UpsertCategoryModal.cshtml" />
-    <Content Include="Views\Promotions\Index.cshtml" />
-    <Content Include="Views\Promotions\index.less" />
     <Content Include="Views\Galleries\_UpsertGalleryModal.cshtml" />
     <Content Include="Views\Galleries\Index.cshtml" />
     <Content Include="Views\Galleries\index.less" />
+    <Content Include="Views\Promotions\_UpsertPromotionModal.cshtml" />
+    <Content Include="Views\Promotions\Index.cshtml" />
+    <Content Include="Views\Promotions\index.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

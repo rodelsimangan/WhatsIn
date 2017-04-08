@@ -1,10 +1,10 @@
 ﻿(function ($) {
 
-    app.modals.UpsertGalleryModal = function () {
+    app.modals.UpsertPromotionModal = function () {
 
         var _modalManager;
 
-        var _appService = abp.services.app.gallery;
+        var _appService = abp.services.app.promotion;
         var _$form = null;
 
         this.init = function (modalManager) {
@@ -23,7 +23,7 @@
             var obj = _$form.serializeFormToObject();
 
             _modalManager.setBusy(true);
-            _appService.upsertGallery(obj).done(function () {
+            _appService.upsertPromotion(obj).done(function () {
                 _modalManager.close();
                 location.reload();
             }).always(function () {
@@ -40,14 +40,14 @@
         }
 
         $.ajax({
-            url: "/Galleries/UploadFile",
+            url: "/Promotions/UploadFile",
             type: "POST",
             processData: false,
             contentType: false,
             data: data,
             success: function (response) {
                 $("#txtImg").val(response);
-                $("#imgPreview").attr('src', '/Uploads/Galleries/' + response);
+                $("#imgPreview").attr('src', '/Uploads/Promotions/' + response);
                 //alert(response); 
             },
             error: function (er) {

@@ -46,7 +46,7 @@
                     {  
                         <div id="@item.Id" class="rTable grid-parent" expandgrid="0">
                             <div id="@item.Id" class="rTableRow" expandgrid="0">
-                                <div class="rTableCell text-left" style="width:40%;"><img id="imgOwnerLogo" alt="No Image" style="height:150px; width:150px;" src="@item.GalleryPath" />
+                                <div class="rTableCell text-left" style="width:40%;"><img id="imgOwnerLogo" alt="No Image" style="height:150px; width:150px;" src="@Url.Content(string.Concat("/Uploads/Galleries/",@item.GalleryPath))" />
                                   </div>
                                 <div class="rTableCell"><input type="hidden" class="userId" /></div>
                                 <div class="rTableCell text-right">

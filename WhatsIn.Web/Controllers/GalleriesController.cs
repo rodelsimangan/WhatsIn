@@ -11,6 +11,8 @@ using Abp.Web.Mvc.Authorization;
 using WhatsIn.Application.Services;
 using WhatsIn.Application.Dto;
 using WhatsIn.Web.Models;
+using System.Web.Helpers;
+using Abp.Web.Models;
 
 namespace WhatsIn.Web.Controllers
 {
@@ -44,27 +46,43 @@ namespace WhatsIn.Web.Controllers
             }
             return PartialView("_UpsertGalleryModal", model);
         }
-
-        // GET: Mpa/MasterData/PostalCodes
-        public ActionResult UploadImageGallery(IEnumerable<HttpPostedFileBase> files)
+  
+        [AcceptVerbs(HttpVerbs.Post)]
+        [DontWrapResult]
+        public JsonResult UploadFile()
         {
-            var reportingLogo = GetBytes(files.First());
-            Session["ReportingLogo"] = reportingLogo;
-            return null;
-        }
-
-        private byte[] GetBytes(HttpPostedFileBase image)
-        {
-            byte[] returnedByte = null;
-
-            if (image != null)
+            string _imgname = string.Empty;
+            string _comPath = string.Empty;
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
             {
-                var length = image.ContentLength;
-                returnedByte = new byte[length];
-                image.InputStream.Read(returnedByte, 0, length);
-            }
+                var pic = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+                    var _ext = Path.GetExtension(pic.FileName);
 
-            return returnedByte;
+                    _imgname = Guid.NewGuid().ToString();
+                    _comPath = string.Concat(Server.MapPath("/Uploads/Galleries/"), AbpSession.UserId.Value, "_", _imgname, _ext);
+                    _imgname = string.Concat(AbpSession.UserId.Value, "_", _imgname, _ext);
+
+                    ViewBag.Msg = _comPath;
+                    var path = _comPath;
+
+                    // Saving Image in Original Mode
+                    pic.SaveAs(path);
+
+                    // resizing image
+                    MemoryStream ms = new MemoryStream();
+                    WebImage img = new WebImage(_comPath);
+
+                    if (img.Width > 200)
+                        img.Resize(200, 200);
+                    img.Save(_comPath);
+                    // end resize
+                }
+            }
+            return Json(Convert.ToString(_imgname), JsonRequestBehavior.AllowGet);
+            //return Json(Convert.ToString(_comPath), JsonRequestBehavior.AllowGet);
         }
     }
 }
