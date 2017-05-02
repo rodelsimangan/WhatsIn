@@ -466,6 +466,7 @@
       <DependentUpon>Login.css</DependentUpon>
     </Content>
     <Content Include="Views\Account\Register.js" />
+    <Content Include="Views\Detail\Index.js" />
     <Content Include="Views\Galleries\Index.js" />
     <Content Include="Views\Galleries\_UpsertGalleryModal.js" />
     <Content Include="Views\Promotions\Index.js" />
@@ -499,6 +500,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GalleriesController.cs" />
     <Compile Include="Controllers\PromotionsController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -573,6 +575,7 @@
     <Content Include="Views\Promotions\_UpsertPromotionModal.cshtml" />
     <Content Include="Views\Promotions\Index.cshtml" />
     <Content Include="Views\Promotions\index.less" />
+    <Content Include="Views\Detail\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

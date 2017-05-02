@@ -12,6 +12,7 @@ namespace WhatsIn.Application.Services
     {
         Task<List<StoreDto>> GetStores(string filter, bool isDeleted);
         Task<StoreDto> GetStore(long id);
+        Task<StoreDto> GetStoreByUser(long userId);
         Task UpsertStore(StoreDto input);
         Task DeleteStore(long id);
     }

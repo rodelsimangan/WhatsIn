@@ -212,6 +212,14 @@
     <Compile Include="Migrations\201704040031018_Added_LogoPath_To_Store.Designer.cs">
       <DependentUpon>201704040031018_Added_LogoPath_To_Store.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705020946465_Update_Store.cs" />
+    <Compile Include="Migrations\201705020946465_Update_Store.Designer.cs">
+      <DependentUpon>201705020946465_Update_Store.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705021013393_Add_UserId_Store.cs" />
+    <Compile Include="Migrations\201705021013393_Add_UserId_Store.Designer.cs">
+      <DependentUpon>201705021013393_Add_UserId_Store.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\StoreRoleBuilder.cs" />
@@ -304,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704040031018_Added_LogoPath_To_Store.resx">
       <DependentUpon>201704040031018_Added_LogoPath_To_Store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705020946465_Update_Store.resx">
+      <DependentUpon>201705020946465_Update_Store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021013393_Add_UserId_Store.resx">
+      <DependentUpon>201705021013393_Add_UserId_Store.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

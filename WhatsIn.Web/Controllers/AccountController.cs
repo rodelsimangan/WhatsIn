@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+
 using Abp.Auditing;
 using Abp.Authorization.Users;
 using Abp.AutoMapper;
@@ -15,15 +16,20 @@ using Abp.Extensions;
 using Abp.Threading;
 using Abp.UI;
 using Abp.Web.Models;
+
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+
 using WhatsIn.Authorization;
 using WhatsIn.Authorization.Roles;
 using WhatsIn.MultiTenancy;
 using WhatsIn.Users;
 using WhatsIn.Web.Controllers.Results;
+using WhatsIn.Web.Models;
 using WhatsIn.Web.Models.Account;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
+using WhatsIn.Application.Services;
+using WhatsIn.Application.Dto;
 
 namespace WhatsIn.Web.Controllers
 {
@@ -35,6 +41,7 @@ namespace WhatsIn.Web.Controllers
         private readonly IUnitOfWorkManager _unitOfWorkManager;
         private readonly IMultiTenancyConfig _multiTenancyConfig;
         private readonly LogInManager _logInManager;
+        private readonly IStoreAppService _storeAppService;
 
         private IAuthenticationManager AuthenticationManager
         {
@@ -50,7 +57,8 @@ namespace WhatsIn.Web.Controllers
             RoleManager roleManager,
             IUnitOfWorkManager unitOfWorkManager,
             IMultiTenancyConfig multiTenancyConfig,
-            LogInManager logInManager)
+            LogInManager logInManager,
+            IStoreAppService storeAppService)
         {
             _tenantManager = tenantManager;
             _userManager = userManager;
@@ -58,6 +66,7 @@ namespace WhatsIn.Web.Controllers
             _unitOfWorkManager = unitOfWorkManager;
             _multiTenancyConfig = multiTenancyConfig;
             _logInManager = logInManager;
+            _storeAppService = storeAppService;
         }
 
         #region Login / Logout
@@ -261,6 +270,11 @@ namespace WhatsIn.Web.Controllers
                 //Save user
                 CheckErrors(await _userManager.CreateAsync(user));
                 await _unitOfWorkManager.Current.SaveChangesAsync();
+
+                //Add Record in Store
+                StoreDto store = new StoreDto();
+                store.UserId = user.Id;
+                await _storeAppService.UpsertStore(store);
 
                 //Directly login if possible
                 if (user.IsActive)

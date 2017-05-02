@@ -56,7 +56,9 @@
     <text name="Optional" value="Optional" />
 
     <text name="Categories" value="Categories" />
+    <text name="Province" value="Province" />
     <text name="Provinces" value="Provinces" />
+    <text name="Location" value="Location" />
     <text name="Locations" value="Locations" />
     <text name="AreYouSureToDeleteTheRecord" value="Are you sure to delete this record?" />
     <text name="CreateNewCategory" value="Create New Category" />
@@ -72,5 +74,16 @@
     <text name="Galleries" value="Galleries" />
     <text name="CreateNewGallery" value="Add Image to Gallery" />
     <text name="Images" value="Images" />
+    <text name="Logo" value="Logo" />
+    <text name="Address1" value="Address 1" />
+    <text name="Address2" value="Address 2" />
+    <text name="PostalCode" value="Postal Code" />
+    <text name="ContactNumber" value="Contact Number" />
+    <text name="Email" value="Email" />
+    <text name="Schedule" value="Schedule" />
+    <text name="FacebookPage" value="Faceboo kPage" />
+    <text name="TwitterPage" value="Twitter Page" />
+    <text name="InstagramPage" value="Instagram Page" />
+    <text name="UploadLogo" value="Upload Logo" />
   </texts>
 </localizationDictionary>

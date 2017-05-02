@@ -80,6 +80,21 @@ namespace WhatsIn.Application.Services
             }
         }
 
+        public async Task<StoreDto> GetStoreByUser(long userId)
+        {
+            try
+            {
+                var query = await _storeRepository.GetAll().AsNoTracking().SingleAsync(u => u.UserId == userId);
+                var dto = query.MapTo<StoreDto>();
+                dto.IsEditMode = true;
+                return dto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task UpsertStore(StoreDto input)
         {
             try
