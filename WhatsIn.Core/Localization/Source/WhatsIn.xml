@@ -85,5 +85,6 @@
     <text name="TwitterPage" value="Twitter Page" />
     <text name="InstagramPage" value="Instagram Page" />
     <text name="UploadLogo" value="Upload Logo" />
+    <text name="SaveChanges" value="Save Changes" />
   </texts>
 </localizationDictionary>

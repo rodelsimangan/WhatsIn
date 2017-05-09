@@ -1,7 +1,33 @@
 ﻿(function () {
     $(function () {
 
-        var _upsertGalleryModal = new app.ModalManager({
+        var _appService = abp.services.app.store;
+
+        $('#SaveDetails').click(function (e) {
+            e.preventDefault();
+            var _$form = null;
+            _$form = $('#DetailForm');
+//            _$form.validate();
+
+ //           if (!_$form.valid()) {
+ //               return;
+ //           }
+ //           alert("SaveDetails");
+
+            var obj = _$form.serializeFormToObject();
+
+            //_modalManager.setBusy(true);
+            _appService.upsertStore(obj).done(function () {
+                //_modalManager.close();
+                location.reload();
+            }).always(function () {
+                abp.ui.setBusy('#DetailForm');
+            });
+        });
+
+
+
+      /*   var _upsertGalleryModal = new app.ModalManager({
             viewUrl: abp.appPath + 'Galleries/UpsertGalleryModal',
             scriptUrl: abp.appPath + 'Views/Galleries/_UpsertGalleryModal.js',
             modalClass: 'UpsertGalleryModal'
@@ -37,7 +63,7 @@
                     }
                 }
             );
-        });
+        }); */
 
       
     });
