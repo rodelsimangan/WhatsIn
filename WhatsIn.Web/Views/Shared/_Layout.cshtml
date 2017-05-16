@@ -20,6 +20,9 @@
 
     @Styles.Render("~/Bundles/vendor/css")
     @Styles.Render("~/Bundles/css")
+    @Styles.Render("~/Content/ej/web/bootstrap-theme/ej.web.all.min.css")
+
+    
 
     <!-- View specific styles -->
     @RenderSection("styles", required: false)
@@ -62,6 +65,10 @@
     @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")
 
 <!-- View specific scripts -->
+    @Scripts.Render("~/Scripts/jsrender.min.js")
+    @Scripts.Render("~/Scripts/ej/web/ej.web.all.min.js")
+    
     @RenderSection("scripts", required: false)
+    @Html.EJ().ScriptManager()
 </body>
 </html>

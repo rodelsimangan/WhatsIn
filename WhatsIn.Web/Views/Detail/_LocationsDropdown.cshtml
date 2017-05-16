@@ -1,0 +1,7 @@
+﻿@using WhatsIn.Application.Dto
+<div class="col-md-4">
+    <div class="form-group form-md-line-input form-md-floating-label no-hint alignleft" id="DIV-LOCATIONS">
+        @Html.EJ().DropDownList("ddlLocations").Datasource((IEnumerable<LocationDto>)ViewData["locations"]).DropDownListFields(df => df.ID("Id").Text("Name").Value("Id")).WatermarkText("--select--").Width("300px")
+        <label>@L("Location")</label>
+    </div>
+</div>
