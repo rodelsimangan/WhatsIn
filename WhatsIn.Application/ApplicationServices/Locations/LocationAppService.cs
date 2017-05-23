@@ -47,7 +47,8 @@ namespace WhatsIn.Application.Services
             {
                 var query = from q in _locationRepository.GetAll()
                             where (string.IsNullOrEmpty(filter) || (q.Description.Contains(filter) || q.Name.Contains(filter)))
-                                  && q.ProvinceId == provinceId && q.IsDeleted == isDeleted
+                                  && (provinceId==null ||  q.ProvinceId == provinceId )
+                                  && q.IsDeleted == isDeleted
                             select q;
 
                 return query.ToList();

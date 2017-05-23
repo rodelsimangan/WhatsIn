@@ -10,6 +10,7 @@ namespace WhatsIn.Web.Models
     [AutoMap(typeof(StoreDto))]
     public class StoreViewModel : StoreDto
     {
+        public int ProvinceId { get; set; }
         public StoreViewModel(StoreDto output)
         {
             output.MapTo(this);

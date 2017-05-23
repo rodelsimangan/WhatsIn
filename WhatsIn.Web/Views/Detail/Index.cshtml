@@ -4,7 +4,7 @@
 @using Abp.Web.Mvc.Extensions
 @using WhatsIn.Web.Navigation
 @using WhatsIn.Application.Dto
-
+@using WhatsIn.Web.Controllers
 @model  WhatsIn.Web.Models.StoreViewModel
 
 @{
@@ -46,13 +46,17 @@
                 <!--div class="form-group form-md-line-input form-md-floating-label no-hint">
                     <img id="imgGallery" alt="No Image" style="height:100px; width:100px;" />
                 </div-->
-                <!--div class="form-group form-md-line-input form-md-floating-label no-hint">
-                   <img id="imgPreview" alt="No Image" height="200" width="200" src="@Url.Content(string.Concat("/Uploads/Logos/",Model.LogoPath))" /><br />
+                <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                    <img id="imgPreview" alt="No Image" height="200" width="200" src="@Url.Content(string.Concat("/Uploads/Logos/",Model.LogoPath))" /><br />
                     <input type="file" id="UploadImg" />
                     <label>@L("UploadLogo")</label>
-                    <input type="hidden" id="txtImg" name="GalleryPath" value="@Model.LogoPath" size="50" /> 
-                </div-->
+                    <input type="hidden" id="txtImg" name="LogoPath" value="@Model.LogoPath" size="50" /> 
+                </div>
                 <br />
+                <div class="form-group form-md-line-input form-md-floating-label no-hint" id="DIV-LOCATIONS">
+                    @Html.EJ().DropDownList("ddlCategories").Datasource((IEnumerable<CategoryDto>)ViewData["categories"]).DropDownListFields(df => df.Text("Name").Value("Id")).WatermarkText("--select--").Width("300px").Value(Model.CategoryId.ToString())
+                    <label>@L("Category")</label>
+                </div>
                 <div class="form-group form-md-line-input form-md-floating-label no-hint">
                     <input class="form-control" type="text" name="Name" required value="@Model.Name">
                     <label>@L("Name")</label>
@@ -68,10 +72,6 @@
                 <div class="form-group form-md-line-input form-md-floating-label no-hint">
                     <input type="text" name="Schedule" class="form-control" required value="@Model.Schedule">
                     <label>@L("Schedule")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    @Html.EJ().DropDownList("ddlProvinces").Datasource((IEnumerable<ProvinceDto>)ViewData["provinces"]).ClientSideEvents(evt => evt.Change("onProvinceChange")).DropDownListFields(df => df.ID("Id").Text("Name").Value("Id")).WatermarkText("--select--").Width("300px")
-                    <label>@L("Province")</label>
                 </div>
             </div>
             <div class="col-md-2">
@@ -89,9 +89,14 @@
                     <input type="text" name="Address2" class="form-control" required value="@Model.Address2">
                     <label>@L("Address2")</label>
                 </div>
-                <div id="DIV-LOCATIONS">
-                    @Html.Action("_LocationsDropdown")
+                <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                    @Html.EJ().DropDownList("ddlProvinces").Datasource((IEnumerable<Province>)ViewData["provinces"]).CascadeTo("ddlLocations").DropDownListFields(df => df.ID("parentId").Text("text").Value("parentId")).WatermarkText("--select--").Width("300px").Value(Model.ProvinceId.ToString())
+                    <label>@L("Province")</label>
                 </div>
+                <div class="form-group form-md-line-input form-md-floating-label no-hint" id="DIV-LOCATIONS">
+                    @Html.EJ().DropDownList("ddlLocations").Datasource((IEnumerable<Location>)ViewData["locations"]).DropDownListFields(df => df.Text("text").Value("value")).WatermarkText("--select--").Width("300px").Value(Model.LocationId.ToString())
+                    <label>@L("Location")</label>
+                </div>                
                 <div class="form-group form-md-line-input form-md-floating-label no-hint">
                     <input type="text" name="PostalCode" class="form-control" required value="@Model.PostalCode">
                     <label>@L("PostalCode")</label>
@@ -112,7 +117,6 @@
             <div class="col-md-2">
             </div>
         </div>
-
     </form>
 
 

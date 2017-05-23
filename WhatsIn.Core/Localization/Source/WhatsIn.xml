@@ -86,5 +86,9 @@
     <text name="InstagramPage" value="Instagram Page" />
     <text name="UploadLogo" value="Upload Logo" />
     <text name="SaveChanges" value="Save Changes" />
+    <text name="Category" value="Category" />
+    <text name="What" value="What" />
+    <text name="IsIn" value="is in?" />
+    <text name="TakeALook" value="Take a look.." />
   </texts>
 </localizationDictionary>

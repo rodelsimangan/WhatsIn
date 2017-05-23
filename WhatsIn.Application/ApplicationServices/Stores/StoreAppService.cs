@@ -112,6 +112,7 @@ namespace WhatsIn.Application.Services
                     obj.ModifiedBy = AbpSession.UserId;
                     obj.DateModified = DateTime.Now;
                 }
+                obj.UserId = AbpSession.UserId.Value;
                 await _storeRepository.InsertOrUpdateAsync(obj);
             }
             catch (Exception ex)

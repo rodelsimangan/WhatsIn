@@ -13,6 +13,7 @@ namespace WhatsIn.Application.Dto
     public class StoreDto : DtoBase
     {
         public long UserId { get; set; }
+        public int CategoryId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string LogoPath { get; set; }

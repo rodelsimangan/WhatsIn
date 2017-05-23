@@ -1043,6 +1043,8 @@
     <Content Include="Views\Detail\Index.js" />
     <Content Include="Views\Galleries\Index.js" />
     <Content Include="Views\Galleries\_UpsertGalleryModal.js" />
+    <Content Include="Views\Home\Index.css" />
+    <Content Include="Views\Home\Index.min.css" />
     <Content Include="Views\Promotions\Index.js" />
     <Content Include="Views\Promotions\_UpsertPromotionModal.js" />
     <Content Include="Views\Stores\Index.js" />
@@ -1151,6 +1153,7 @@
     <Content Include="Views\Promotions\index.less" />
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\Detail\_LocationsDropdown.cshtml" />
+    <Content Include="Views\Home\Index.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
