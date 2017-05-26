@@ -90,5 +90,6 @@
     <text name="What" value="What" />
     <text name="IsIn" value="is in?" />
     <text name="TakeALook" value="Take a look.." />
+    <text name="Search" value="Search" />
   </texts>
 </localizationDictionary>

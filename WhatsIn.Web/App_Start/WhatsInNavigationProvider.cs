@@ -57,10 +57,18 @@ namespace WhatsIn.Web
                         ) */
                 ).AddItem(
                     new MenuItemDefinition(
+                        "Search",
+                        L("Search"),
+                        url: "Search",
+                        icon: "fa fa-search" /*,
+                        requiredPermissionName: PermissionNames.Pages_StoreDetail*/
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
                         "Detail",
                         L("Detail"),
                         url: "Detail",
-                        icon: "fa fa-address-book" /*,
+                        icon: "fa fa-list" /*,
                         requiredPermissionName: PermissionNames.Pages_StoreDetail*/
                         )
                ).AddItem(

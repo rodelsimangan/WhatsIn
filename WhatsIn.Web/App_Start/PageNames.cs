@@ -13,6 +13,7 @@ namespace WhatsIn.Web.Navigation
             }
             public static class Store
             {
+                public const string Search = "Store.Search";
                 public const string StoreDetail = "Store.StoreDetail";
                 public const string Promotions = "Store.Promotions";
                 public const string Galleries = "Store.Galleries";

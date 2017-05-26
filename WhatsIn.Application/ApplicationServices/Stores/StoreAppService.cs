@@ -65,6 +65,28 @@ namespace WhatsIn.Application.Services
             }
         }
 
+        public async Task<List<StoreDto>> GetStores(int? categoryId, int? locationId, bool isDeleted)
+        {
+            try
+            {
+                var users = await Task.Run(() =>
+                {
+                    var query = from q in _storeRepository.GetAll()
+                                where (categoryId != null || q.CategoryId == categoryId)
+                                      && (locationId != null || q.LocationId == locationId)
+                                      && q.IsDeleted == isDeleted
+                                select q;
+
+                    return query.ToList();
+                });
+                return users.MapTo<List<StoreDto>>();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<StoreDto> GetStore(long id)
         {
             try

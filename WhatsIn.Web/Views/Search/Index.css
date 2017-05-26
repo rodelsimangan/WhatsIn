@@ -1,0 +1,11 @@
+﻿#HomeArea {
+  max-width: 800px;
+  margin: 120px auto 10px auto;
+}
+ body
+ {
+     background-image:url(../../images/cityscape-2037251_1280.jpg);
+     background-repeat:no-repeat;
+     background-position: center center;
+     background-size: cover;
+ }

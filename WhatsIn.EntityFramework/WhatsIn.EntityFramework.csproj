@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201705021013393_Add_UserId_Store.Designer.cs">
       <DependentUpon>201705021013393_Add_UserId_Store.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705231122071_Add_Category_To_StoreDetail.cs" />
+    <Compile Include="Migrations\201705231122071_Add_Category_To_StoreDetail.Designer.cs">
+      <DependentUpon>201705231122071_Add_Category_To_StoreDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\StoreRoleBuilder.cs" />
@@ -318,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705021013393_Add_UserId_Store.resx">
       <DependentUpon>201705021013393_Add_UserId_Store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231122071_Add_Category_To_StoreDetail.resx">
+      <DependentUpon>201705231122071_Add_Category_To_StoreDetail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1043,8 +1043,12 @@
     <Content Include="Views\Detail\Index.js" />
     <Content Include="Views\Galleries\Index.js" />
     <Content Include="Views\Galleries\_UpsertGalleryModal.js" />
+    <Content Include="Views\Search\Index.css" />
+    <Content Include="Views\Search\Index.js" />
+    <Content Include="Views\Search\Index.min.css" />
     <Content Include="Views\Home\Index.css" />
     <Content Include="Views\Home\Index.min.css" />
+    <Content Include="Views\Home\Index.js" />
     <Content Include="Views\Promotions\Index.js" />
     <Content Include="Views\Promotions\_UpsertPromotionModal.js" />
     <Content Include="Views\Stores\Index.js" />
@@ -1075,6 +1079,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GalleriesController.cs" />
+    <Compile Include="Controllers\SearchController .cs" />
     <Compile Include="Controllers\PromotionsController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\StoresController.cs" />
@@ -1105,6 +1110,7 @@
     <Compile Include="Models\Store\GalleryViewModel.cs" />
     <Compile Include="Models\Store\PromotionViewModel.cs" />
     <Compile Include="Models\Store\LogoViewModel.cs" />
+    <Compile Include="Models\Store\SearchViewModel.cs" />
     <Compile Include="Models\Store\StoreViewModel.cs" />
     <Compile Include="Models\Users\UserInputViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1154,6 +1160,8 @@
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\Detail\_LocationsDropdown.cshtml" />
     <Content Include="Views\Home\Index.less" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Search\Index.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
