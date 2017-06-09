@@ -13,14 +13,15 @@
 @section Scripts
 {
     @Html.IncludeScript("~/Views/Search/Index.js")
+    @Html.IncludeScript("~/Scripts/jquery.unobtrusive-ajax.min.js")
 }
 <div class="container">
     <div id="HomeArea" class="row">
-        <form id="SearchForm" class="form-horizontal" action="@(Url.Action("Search", "Search"))" method="POST">
+        <!--form id="SearchForm" class="form-horizontal" action="@@(Url.Action("Search", "Search"))" method="POST"-->
             <div class="col-md-12" style="background-color:white;">
                 <div class="rTable">
                     <div class="rTableRow">
-                        <div class="rTableCell text-left form-inline">
+                        <div class="rTableCell text-justify form-inline">
                             <span>
                                 @L("What")
                                 @Html.EJ().DropDownList("ddlCategories").Datasource((IEnumerable<CategoryDto>)ViewData["categories"]).DropDownListFields(df => df.Text("Name").Value("Id")).WatermarkText("Categories").Width("200px")
@@ -28,7 +29,7 @@
                         </div>
                     </div>
                     <div class="rTableRow">
-                        <div class="rTableCell text-left">
+                        <div class="rTableCell text-justify">
                             <span>
                                 @L("IsIn")
                                 @Html.EJ().DropDownList("ddlProvinces").Datasource((IEnumerable<Province>)ViewData["provinces"]).CascadeTo("ddlLocations").DropDownListFields(df => df.ID("parentId").Text("text").Value("parentId")).WatermarkText("Province").Width("250px")
@@ -37,7 +38,7 @@
                         </div>
                     </div>
                     <div class="rTableRow">
-                        <div class="rTableCell text-left">
+                        <div class="rTableCell text-justify">
                             <button id="SearchButton" type="submit" class="btn btn-primary blue"><i class="fa fa-search"></i> @L("TakeALook")</button>
                         </div>
                     </div>
@@ -51,31 +52,11 @@
                                 <div class="rTableHead">&nbsp;</div>
                             </div>
                         </div>
-
-                        @foreach (var item in Model.Stores)
-                        {
-                            <div id="@item.Id" class="rTable grid-parent" expandgrid="0">
-                                <div id="@item.Id" class="rTableRow" expandgrid="0">
-                                    <div class="rTableCell text-left" style="width:40%;">
-                                        <img id="imgOwnerLogo" alt="No Image" style="height:150px; width:150px;" src="@Url.Content(string.Concat("/Uploads/Logos/",item.LogoPath))" />
-                                    </div>
-                                    <div class="rTableCell"><input type="hidden" class="userId" /></div>
-                                    <div class="rTableCell text-right">
-                                        <i class="fa fa-address-card-o"></i><span>@string.Concat(item.Address1, " ", item.Address2)</span>
-                                        <i class="fa fa-phone"></i><span>@item.ContactNum</span>
-                                        <i class="fa fa-clock-o"></i><span>@item.Email</span>
-                                        <i class="fa fa-envelope-o"></i><span>@item.Schedule</span>
-                                        <i class="fa fa-facebook"></i><a href="@string.Concat("www.facebook.com/",item.FacebookPage)">Facebook Page</a>
-                                        <i class="fa fa-twitter"></i><a href="@string.Concat("www.twitter.com/", item.TwitterPage)">Facebook Page</a>
-                                        <i class="fa fa-instagram"></i><a href="@string.Concat("www.instagram.com/", item.InstagramPage)">Facebook Page</a>
-                                        <i class="fa fa-link"></i><a href="@string.Concat("www.whatsin.ph/", item.Name)">Click to view more..</a>
-                                    </div>
-                                </div>
-                            </div>
-                        }
+                        <div id="SearchResult" class="text-left"></div>
+                       
                     </div>
                 </div>
             </div>
-        </form>
+        <!--/form-->
     </div>
 </div>

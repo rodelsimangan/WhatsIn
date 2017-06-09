@@ -28,27 +28,38 @@ namespace WhatsIn.Web.Controllers
             _provinceAppService = provinceAppService;
         }
 
-        public async Task<ActionResult> Index(SearchViewModel model)
-        {
-            await GetCategoriesDropdown();
-            await GetProvinceDropdown();
-            await GetLocationsDropdown();
-            //SearchViewModel model = new SearchViewModel();
-            model.Stores = new List<StoreDto>();
-            //return SearchView(new SearchViewModel())
-            return View(model);   
-        }
+         public async Task<ActionResult> Index(SearchViewModel model)
+           {
+               await GetCategoriesDropdown();
+               await GetProvinceDropdown();
+               await GetLocationsDropdown();
+               //SearchViewModel model = new SearchViewModel();
+               model.Stores = new List<StoreDto>();
+               //return SearchView(new SearchViewModel())
+               return View(model);   
+           } 
 
-/*        //[HttpPost]
-        public ActionResult SearchView(SearchViewModel model)
+      /*  public async Task<JsonResult> Index(SearchViewModel model)
         {
-            //SearchViewModel model = new SearchViewModel();
-            model.Stores = new List<StoreDto>();
-            //return View(model);
-            return View("Index", model);
+            try
+            {
+                model.Stores = new List<StoreDto>();
+                var output = await _storeAppService.GetStores(6, 5, false);
+                model.Stores = output;
+                //return  Json(model);
+                //Redirect(")
+                //return (model);
+                // return RedirectToAction("Index", "Home");
+                return Json(model, JsonRequestBehavior.AllowGet);
+                //return View("Index", model);                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         } */
+
         [HttpPost]
-        //[UnitOfWork]
         public virtual async Task<JsonResult> Result(SearchViewModel model)
         {
             try
@@ -60,8 +71,8 @@ namespace WhatsIn.Web.Controllers
                 //Redirect(")
                 //return (model);
                 // return RedirectToAction("Index", "Home");
-                return Json(model);
-                //return View("Index", model);
+                return Json(model, JsonRequestBehavior.AllowGet);
+                //return View("Index", model);                
             }
             catch (Exception ex)
             {
