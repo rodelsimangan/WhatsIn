@@ -1043,6 +1043,7 @@
     <Content Include="Views\Detail\Index.js" />
     <Content Include="Views\Galleries\Index.js" />
     <Content Include="Views\Galleries\_UpsertGalleryModal.js" />
+    <Content Include="Views\Pages\Index.js" />
     <Content Include="Views\Search\Index.css" />
     <Content Include="Views\Search\Index.js" />
     <Content Include="Views\Search\Index.min.css" />
@@ -1079,6 +1080,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GalleriesController.cs" />
+    <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\SearchController .cs" />
     <Compile Include="Controllers\PromotionsController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
@@ -1162,6 +1164,9 @@
     <Content Include="Views\Home\Index.less" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Search\Index.less" />
+    <Content Include="Views\Pages\_Index.cshtml" />
+    <Content Include="Views\Pages\Index.cshtml" />
+    <Content Include="Views\Pages\index.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
