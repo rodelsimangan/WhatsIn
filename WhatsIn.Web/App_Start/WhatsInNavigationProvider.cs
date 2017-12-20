@@ -39,7 +39,7 @@ namespace WhatsIn.Web
                         icon: "fa fa-users",
                         requiredPermissionName: PermissionNames.Pages_Users
                         )
-              /*  ).AddItem(
+                ).AddItem(
                     new MenuItemDefinition(
                         "Categories",
                         L("Categories"),
@@ -54,7 +54,7 @@ namespace WhatsIn.Web
                         url: "Locations",
                         icon: "fa fa-globe",
                         requiredPermissionName: PermissionNames.Pages_Locations
-                        ) */
+                        ) 
                 ).AddItem(
                     new MenuItemDefinition(
                         "Search",
@@ -68,24 +68,24 @@ namespace WhatsIn.Web
                         "Detail",
                         L("Detail"),
                         url: "Detail",
-                        icon: "fa fa-list" /*,
-                        requiredPermissionName: PermissionNames.Pages_StoreDetail*/
+                        icon: "fa fa-list" ,
+                        requiredPermissionName: PermissionNames.Pages_StoreDetail
                         )
                ).AddItem(
                     new MenuItemDefinition(
                         "Promotions",
                         L("Promotions"),
                         url: "Promotions",
-                        icon: "fa fa-tags" /*,
-                        requiredPermissionName: PermissionNames.Pages_Promotions */
+                        icon: "fa fa-tags" ,
+                        requiredPermissionName: PermissionNames.Pages_Promotions 
                         )
                 ).AddItem(
                     new MenuItemDefinition(
                         "Galleries",
                         L("Galleries"),
                         url: "Galleries",
-                        icon: "fa fa-image" /*,
-                        requiredPermissionName: PermissionNames.Pages_Galleries */
+                        icon: "fa fa-image" ,
+                        requiredPermissionName: PermissionNames.Pages_Galleries 
                         )
                 ).AddItem(
                     new MenuItemDefinition(

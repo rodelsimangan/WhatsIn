@@ -35,6 +35,8 @@ namespace WhatsIn.Migrations
             }
 
             new StoreRoleBuilder(context, 1).Create();
+            new DefaultCategoriesCreator(context).Create();
+            new DefaultLocationsCreator(context).Create();
             context.SaveChanges();
         }
     }

@@ -16,116 +16,120 @@
 {
     @Html.IncludeScript("~/Views/Detail/Index.js")
 }
-<div class="row">
-    <div class="col-xs-6">
-        <div class="page-head">
-            <div class="page-title">
-                <h1>
-                    <span>@L("Detail")</span>
-                </h1>
+<div class="row" style="background-color:white">
+    <div class="col-xs-12">
+        <div class="col-xs-6">
+            <div class="page-head">
+                <div class="page-title">
+                    <h1>
+                        <span>@L("Detail")</span>
+                    </h1>
+                </div>
             </div>
         </div>
-    </div>
-    <form role="form" id="DetailForm" novalidate class="form-validation">
-        <div class="col-md-12 text-right">
-            <button id="SaveDetails" class="btn btn-primary blue"><i class="fa fa-save"></i> @L("Save")</button>
-            <button id="CancelDetails" class="btn btn-primary blue"><i class="fa fa-times"></i> @L("Cancel")</button>
-        </div>
-        <div class="col-md-12 text-left">
-            &nbsp;
-        </div>
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <!--h3>Basic Information</!--h3-->
-                @if (Model.IsEditMode)
+        <form role="form" id="DetailForm" novalidate class="form-validation">
+            <div class="col-md-12 text-right">
+                <button id="SaveDetails" class="btn btn-primary blue"><i class="fa fa-save"></i> @L("Save")</button>
+                <button id="CancelDetails" class="btn btn-primary blue"><i class="fa fa-times"></i> @L("Cancel")</button>
+            </div>
+            <div class="col-md-12 text-left">
+                &nbsp;
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <!--h3>Basic Information</!--h3-->
+                    @if (Model.IsEditMode)
                 {
-                    <input type="hidden" name="Id" value="@Model.Id" />
-                    <input type="hidden" name="DateCreated" value="@Model.DateCreated" />
-                    <input type="hidden" name="CreatedBy" value="@Model.CreatedBy" />
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="hidden" name="UserId" value="@Model.UserId" />
+                <input type="hidden" name="DateCreated" value="@Model.DateCreated" />
+                <input type="hidden" name="CreatedBy" value="@Model.CreatedBy" />
                 }
-                <!--div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <img id="imgGallery" alt="No Image" style="height:100px; width:100px;" />
-                </div-->
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <img id="imgPreview" alt="No Image" height="200" width="200" src="@Url.Content(string.Concat("/Uploads/Logos/",Model.LogoPath))" /><br />
-                    <input type="file" id="UploadImg" />
-                    <label>@L("UploadLogo")</label>
-                    <input type="hidden" id="txtImg" name="LogoPath" value="@Model.LogoPath" size="50" /> 
+                    <!--div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <img id="imgGallery" alt="No Image" style="height:100px; width:100px;" />
+                    </div-->
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <img id="imgPreview" class="img-responsive" alt="No Image" height="200" width="200" src="@Url.Content(string.Concat("/Uploads/Logos/",Model.LogoPath))" /><br />
+                        <input type="file" id="UploadImg" />
+                        <label>@L("UploadLogo")</label>
+                        <input type="hidden" id="txtImg" name="LogoPath" value="@Model.LogoPath" size="50" />
+                    </div>
+                    <br />
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint" id="DIV-LOCATIONS">
+                        @Html.EJ().DropDownList("ddlCategories").Datasource((IEnumerable<CategoryDto>)ViewData["categories"]).DropDownListFields(df => df.Text("Name").Value("Id")).WatermarkText("--select--").Width("300px").Value(Model.CategoryId.ToString())
+                        <label>@L("Category")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input class="form-control" type="text" name="Name" required value="@Model.Name">
+                        <label>@L("Name")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Description" class="form-control" required value="@Model.Description">
+                        <label>@L("Description")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Email" class="form-control" required value="@Model.Email">
+                        <label>@L("Email")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <!--input type="text" name="Schedule" class="form-control" required value="@*Model.Schedule*@"-->
+                        <textarea name="Schedule" class="form-control" rows="5" wrap="hard" required>@Model.Schedule</textarea>
+                        <label>@L("Schedule")</label>
+                    </div>
                 </div>
-                <br />
-                <div class="form-group form-md-line-input form-md-floating-label no-hint" id="DIV-LOCATIONS">
-                    @Html.EJ().DropDownList("ddlCategories").Datasource((IEnumerable<CategoryDto>)ViewData["categories"]).DropDownListFields(df => df.Text("Name").Value("Id")).WatermarkText("--select--").Width("300px").Value(Model.CategoryId.ToString())
-                    <label>@L("Category")</label>
+                <div class="col-md-2">
                 </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input class="form-control" type="text" name="Name" required value="@Model.Name">
-                    <label>@L("Name")</label>
+                <div class="col-md-4">
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="ContactNum" class="form-control" required value="@Model.ContactNum">
+                        <label>@L("ContactNumber")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Address1" class="form-control" required value="@Model.Address1">
+                        <label>@L("Address1")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Address2" class="form-control" required value="@Model.Address2">
+                        <label>@L("Address2")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        @Html.EJ().DropDownList("ddlProvinces").Datasource((IEnumerable<Province>)ViewData["provinces"]).CascadeTo("ddlLocations").DropDownListFields(df => df.ID("parentId").Text("text").Value("parentId")).WatermarkText("--select--").Width("300px").Value(Model.ProvinceId.ToString())
+                        <label>@L("Province")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint" id="DIV-LOCATIONS">
+                        @Html.EJ().DropDownList("ddlLocations").Datasource((IEnumerable<Location>)ViewData["locations"]).DropDownListFields(df => df.Text("text").Value("value")).WatermarkText("--select--").Width("300px").Value(Model.LocationId.ToString())
+                        <label>@L("Location")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="PostalCode" class="form-control" required value="@Model.PostalCode">
+                        <label>@L("PostalCode")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="FacebookPage" class="form-control" required value="@Model.FacebookPage">
+                        <label>@L("FacebookPage")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="TwitterPage" class="form-control" required value="@Model.TwitterPage">
+                        <label>@L("TwitterPage")</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="InstagramPage" class="form-control" required value="@Model.InstagramPage">
+                        <label>@L("InstagramPage")</label>
+                    </div>
                 </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="Description" class="form-control" required value="@Model.Description">
-                    <label>@L("Description")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="Email" class="form-control" required value="@Model.Email">
-                    <label>@L("Email")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="Schedule" class="form-control" required value="@Model.Schedule">
-                    <label>@L("Schedule")</label>
+                <div class="col-md-2">
                 </div>
             </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-4">
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="ContactNum" class="form-control" required value="@Model.ContactNum">
-                    <label>@L("ContactNumber")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="Address1" class="form-control" required value="@Model.Address1">
-                    <label>@L("Address1")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="Address2" class="form-control" required value="@Model.Address2">
-                    <label>@L("Address2")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    @Html.EJ().DropDownList("ddlProvinces").Datasource((IEnumerable<Province>)ViewData["provinces"]).CascadeTo("ddlLocations").DropDownListFields(df => df.ID("parentId").Text("text").Value("parentId")).WatermarkText("--select--").Width("300px").Value(Model.ProvinceId.ToString())
-                    <label>@L("Province")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint" id="DIV-LOCATIONS">
-                    @Html.EJ().DropDownList("ddlLocations").Datasource((IEnumerable<Location>)ViewData["locations"]).DropDownListFields(df => df.Text("text").Value("value")).WatermarkText("--select--").Width("300px").Value(Model.LocationId.ToString())
-                    <label>@L("Location")</label>
-                </div>                
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="PostalCode" class="form-control" required value="@Model.PostalCode">
-                    <label>@L("PostalCode")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="FacebookPage" class="form-control" required value="@Model.FacebookPage">
-                    <label>@L("FacebookPage")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="TwitterPage" class="form-control" required value="@Model.TwitterPage">
-                    <label>@L("TwitterPage")</label>
-                </div>
-                <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                    <input type="text" name="InstagramPage" class="form-control" required value="@Model.InstagramPage">
-                    <label>@L("InstagramPage")</label>
-                </div>
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>
-    </form>
+        </form>
 
+    </div>
 
 </div>
 <script>
     var DetailsUrlSettings = {
         LocationsUrl: '@Url.Action("_LocationsDropdown")',
-        LocationsDataSource : '@ViewData["locations"]'
+        LocationsDataSource: '@ViewData["locations"]'
     }
 
-    
+
 </script>

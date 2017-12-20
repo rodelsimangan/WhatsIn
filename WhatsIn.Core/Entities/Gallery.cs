@@ -11,6 +11,7 @@ namespace WhatsIn.Core.Entities
     [Table("Galleries")]
     public class Gallery : EntityBase
     {
+        public virtual long UserId { get; set; }
         public virtual int StoreId { get; set; }
         public virtual string GalleryPath { get; set; }
     }

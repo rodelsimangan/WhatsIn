@@ -16,6 +16,7 @@ using Abp.Web.Models;
 
 namespace WhatsIn.Web.Controllers
 {
+    [AbpMvcAuthorize]
     public class PromotionsController : WhatsInControllerBase
     {
         private readonly IPromotionAppService _appService;
@@ -27,7 +28,7 @@ namespace WhatsIn.Web.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var output = await _appService.GetPromotions(null, false);
+            var output = await _appService.GetPromotions(AbpSession.UserId.Value, false);
             return View(output);
         }
 
@@ -42,8 +43,10 @@ namespace WhatsIn.Web.Controllers
             if (id.HasValue)
             {
                 var dto = await _appService.GetPromotion(id.Value);
-                model = new PromotionViewModel(dto);
+                model = new PromotionViewModel(dto);                
             }
+            else
+                model.UserId = AbpSession.UserId.Value;
             return PartialView("_UpsertPromotionModal", model);
         }
 

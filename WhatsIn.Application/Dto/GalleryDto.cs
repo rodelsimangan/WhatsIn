@@ -9,10 +9,11 @@ using WhatsIn.Core.Entities;
 
 namespace WhatsIn.Application.Dto
 {
-    [AutoMap(typeof(Logo))]
-    public class LogoDto : DtoBase
+    [AutoMap(typeof(Gallery))]
+    public class GalleryDto : DtoBase
     {
+        public long UserId { get; set; }
         public int StoreId { get; set; }
-        public string LogoPath { get; set; }
+        public string GalleryPath { get; set; }
     }
 }

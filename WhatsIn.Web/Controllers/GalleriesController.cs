@@ -16,6 +16,7 @@ using Abp.Web.Models;
 
 namespace WhatsIn.Web.Controllers
 {
+    [AbpMvcAuthorize]
     public class GalleriesController : WhatsInControllerBase
     {
         private readonly IGalleryAppService _appService;
@@ -27,7 +28,7 @@ namespace WhatsIn.Web.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var output = await _appService.GetGalleries(null, false);
+            var output = await _appService.GetGalleries(AbpSession.UserId.Value, false);
             return View(output);
         }
 
@@ -44,6 +45,8 @@ namespace WhatsIn.Web.Controllers
                 var dto = await _appService.GetGallery(id.Value);
                 model = new GalleryViewModel(dto);
             }
+            else
+                model.UserId = AbpSession.UserId.Value;
             return PartialView("_UpsertGalleryModal", model);
         }
   

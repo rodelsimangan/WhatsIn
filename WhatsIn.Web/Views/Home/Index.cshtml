@@ -8,7 +8,57 @@
 @section Styles
 {
     @Html.IncludeStyle("~/Views/Home/Index.css")
+    @Html.IncludeStyle("~/css/Grid.css")
 }
-<div class="container">
-    
+@section Scripts
+{
+    @Html.IncludeScript("~/Views/Home/Index.js")
+    @Html.IncludeScript("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @*Html.IncludeScript("~/Scripts/detect_swipe/jquery.detect_swipe.js")*@
+}
+<div class="row margin-bottom-5 admin-content">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-3 sidebar-filter">
+                <div class="panel panel-default">                    
+                    <div id="sidebar" >
+                        <a href="#" class="list-group sidebarlink active">
+                            <i class="icon-dashboard"></i> Filter by:
+                        </a>                        
+                        <a href="#categories" class="list-group-item sidebarlink" data-parent="#sidebar">
+                            <i class="icon-group"></i> Categories
+                        </a>
+                        <div id="categories" class="list-group subitem collapse">                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-9">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="page-head">
+                            <div class="page-title">
+                                <h1>
+                                    <span>Featured Establishments</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="SearchHomeArea">
+                            <!--form id="SearchForm" class="form-horizontal" action="@@(Url.Action("Search", "Search"))" method="POST"-->
+                            <div class="col-xs-12">
+                                <div class="row">&nbsp;</div>
+                                <div id="SearchResult" class="text-left">
+                                </div>
+                            </div>
+                        </div>
+                        <!--/form-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

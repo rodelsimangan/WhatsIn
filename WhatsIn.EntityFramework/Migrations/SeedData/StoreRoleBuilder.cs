@@ -33,27 +33,45 @@ namespace WhatsIn.Migrations.SeedData
             var storeRole = _context.Roles.FirstOrDefault(r => r.TenantId == _tenantId && r.Name == StaticRoleNames.Tenants.Store);
             if (storeRole == null)
             {
-                storeRole = _context.Roles.Add(new Role(_tenantId, StaticRoleNames.Tenants.Store, StaticRoleNames.Tenants.Store) { IsStatic = true });
+                storeRole = _context.Roles.Add(new Role(_tenantId, StaticRoleNames.Tenants.Store, StaticRoleNames.Tenants.Store) { IsStatic = true, IsDefault = true });
                 _context.SaveChanges();
 
-                //Grant all permissions to admin role
-                var permissions = PermissionFinder
-                    .GetAllPermissions(new WhatsInAuthorizationProvider())
-                    .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Tenant))
-                    .ToList();
+                _context.Permissions.Add(
+                      new RolePermissionSetting
+                      {
+                          TenantId = _tenantId,
+                          Name = PermissionNames.Pages,
+                          IsGranted = true,
+                          RoleId = storeRole.Id
+                      });
 
-                foreach (var permission in permissions)
-                {
-                    _context.Permissions.Add(
-                        new RolePermissionSetting
-                        {
-                            TenantId = _tenantId,
-                            Name = permission.Name,
-                            IsGranted = true,
-                            RoleId = storeRole.Id
-                        });
-                }
+                _context.Permissions.Add(
+                       new RolePermissionSetting
+                       {
+                           TenantId = _tenantId,
+                           Name = PermissionNames.Pages_StoreDetail,
+                           IsGranted = true,
+                           RoleId = storeRole.Id
+                       });
 
+                _context.Permissions.Add(
+                       new RolePermissionSetting
+                       {
+                           TenantId = _tenantId,
+                           Name = PermissionNames.Pages_Promotions,
+                           IsGranted = true,
+                           RoleId = storeRole.Id
+                       });
+
+                _context.Permissions.Add(
+                       new RolePermissionSetting
+                       {
+                           TenantId = _tenantId,
+                           Name = PermissionNames.Pages_Galleries,
+                           IsGranted = true,
+                           RoleId = storeRole.Id
+                       });
+             
                 _context.SaveChanges();
             }           
         }

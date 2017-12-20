@@ -36,23 +36,41 @@ namespace WhatsIn.Migrations.SeedData
                 adminRole = _context.Roles.Add(new Role(_tenantId, StaticRoleNames.Tenants.Admin, StaticRoleNames.Tenants.Admin) { IsStatic = true });
                 _context.SaveChanges();
 
-                //Grant all permissions to admin role
-                var permissions = PermissionFinder
-                    .GetAllPermissions(new WhatsInAuthorizationProvider())
-                    .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Tenant))
-                    .ToList();
+                _context.Permissions.Add(
+                    new RolePermissionSetting
+                    {
+                        TenantId = _tenantId,
+                        Name = PermissionNames.Pages,
+                        IsGranted = true,
+                        RoleId = adminRole.Id
+                    });
 
-                foreach (var permission in permissions)
-                {
-                    _context.Permissions.Add(
-                        new RolePermissionSetting
-                        {
-                            TenantId = _tenantId,
-                            Name = permission.Name,
-                            IsGranted = true,
-                            RoleId = adminRole.Id
-                        });
-                }
+                _context.Permissions.Add(
+                       new RolePermissionSetting
+                       {
+                           TenantId = _tenantId,
+                           Name = PermissionNames.Pages_Users,
+                           IsGranted = true,
+                           RoleId = adminRole.Id
+                       });
+
+                _context.Permissions.Add(
+                     new RolePermissionSetting
+                     {
+                         TenantId = _tenantId,
+                         Name = PermissionNames.Pages_Categories,
+                         IsGranted = true,
+                         RoleId = adminRole.Id
+                     });
+
+                _context.Permissions.Add(
+                       new RolePermissionSetting
+                       {
+                           TenantId = _tenantId,
+                           Name = PermissionNames.Pages_Locations,
+                           IsGranted = true,
+                           RoleId = adminRole.Id
+                       });
 
                 _context.SaveChanges();
             }

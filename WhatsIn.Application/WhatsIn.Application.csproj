@@ -124,9 +124,9 @@
     <Compile Include="ApplicationServices\Provinces\IProvinceAppService.cs" />
     <Compile Include="ApplicationServices\Categories\CategoryAppService.cs" />
     <Compile Include="ApplicationServices\Categories\ICategoryAppService.cs" />
+    <Compile Include="Dto\LogoDto.cs" />
     <Compile Include="Dto\GalleryDto.cs" />
     <Compile Include="Dto\PromotionDto.cs" />
-    <Compile Include="Dto\LogoDto.cs" />
     <Compile Include="Dto\StoreDto.cs" />
     <Compile Include="Dto\LocationDto.cs" />
     <Compile Include="Dto\ProvinceDto.cs" />

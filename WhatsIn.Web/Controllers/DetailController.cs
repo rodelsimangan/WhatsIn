@@ -16,6 +16,7 @@ using System.Web.Helpers;
 
 namespace WhatsIn.Web.Controllers
 {
+    [AbpMvcAuthorize]
     public class DetailController : WhatsInControllerBase
     {
         private readonly IStoreAppService _storeAppService;
@@ -41,11 +42,14 @@ namespace WhatsIn.Web.Controllers
                 //ViewData["locations"] = new List<LocationDto>();
                 StoreViewModel model = new StoreViewModel(new StoreDto());
                 var output = await _storeAppService.GetStoreByUser(AbpSession.UserId.Value);
-                var loc = await _locationAppService.GetLocation(Convert.ToInt32(output.LocationId));
-                
+
                 model = new StoreViewModel(output);
-                model.ProvinceId = Convert.ToInt32(loc.ProvinceId);
-                
+                LocationDto loc = new LocationDto();
+                if (output.LocationId > 0)
+                {
+                    loc = await _locationAppService.GetLocation(Convert.ToInt32(output.LocationId));
+                    model.ProvinceId = Convert.ToInt32(loc.ProvinceId);
+                }                
                 return View(model);
             }
             catch (Exception ex)
@@ -59,7 +63,7 @@ namespace WhatsIn.Web.Controllers
             try
             {
                 List<Province> prov = new List<Province>();
-                var output = await _provinceAppService.GetProvinces(null, false);                
+                var output = await _provinceAppService.GetProvinces(null, false);
                 for (int i = 0; i < output.Count(); i++)
                 {
                     prov.Add(new Province() { text = output[i].Description, parentId = output[i].Id.ToString() });
@@ -91,12 +95,12 @@ namespace WhatsIn.Web.Controllers
             {
                 List<Location> loc = new List<Location>();
                 var output = await _locationAppService.GetLocations(null, null, false);
-                for (int i= 0; i < output.Count(); i++)
+                for (int i = 0; i < output.Count(); i++)
                 {
                     loc.Add(new Location() { text = output[i].Description, parentId = output[i].ProvinceId.ToString(), value = output[i].Id.ToString() });
                 }
-                    ViewData["locations"] = loc;
-               
+                ViewData["locations"] = loc;
+
 
             }
             catch (Exception ex)

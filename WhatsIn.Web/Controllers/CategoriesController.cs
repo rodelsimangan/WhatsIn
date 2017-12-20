@@ -13,6 +13,7 @@ using WhatsIn.Web.Models;
 
 namespace WhatsIn.Web.Controllers
 {
+    [AbpMvcAuthorize]
     public class CategoriesController : WhatsInControllerBase
     {
         private readonly ICategoryAppService _appService;

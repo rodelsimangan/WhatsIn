@@ -27,5 +27,7 @@ namespace WhatsIn.Core.Entities
         public virtual string FacebookPage { get; set; }
         public virtual string TwitterPage { get; set; }
         public virtual string InstagramPage { get; set; }
+        public virtual bool HasOwnWebsite { get; set; }
+        public virtual string WebsiteAddress { get; set; }
     }
 }

@@ -43,14 +43,14 @@ namespace WhatsIn.Application.Services
         }
 
 
-        public async Task<List<GalleryDto>> GetGalleries(string filter, bool isDeleted)
+        public async Task<List<GalleryDto>> GetGalleries(long userId, bool isDeleted)
         {
             try
             {
                 var users = await Task.Run(() =>
                 {
                     var query = from q in _galleryRepository.GetAll()
-                                where (string.IsNullOrEmpty(filter) || (q.GalleryPath.Contains(filter)))
+                                where q.UserId == userId
                                       && q.IsDeleted == isDeleted
                                 select q;
 

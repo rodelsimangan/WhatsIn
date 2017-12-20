@@ -43,14 +43,14 @@ namespace WhatsIn.Application.Services
         }
 
 
-        public async Task<List<PromotionDto>> GetPromotions(string filter, bool isDeleted)
+        public async Task<List<PromotionDto>> GetPromotions(long userId, bool isDeleted)
         {
             try
             {
                 var users = await Task.Run(() =>
                 {
                     var query = from q in _promotionRepository.GetAll()
-                                where (string.IsNullOrEmpty(filter) || (q.PromotionPath.Contains(filter)))
+                                where q.UserId == userId
                                       && q.IsDeleted == isDeleted
                                 select q;
 

@@ -9,10 +9,10 @@ using WhatsIn.Core.Entities;
 
 namespace WhatsIn.Application.Dto
 {
-    [AutoMap(typeof(Promotion))]
-    public class PromotionDto : DtoBase
+    [AutoMap(typeof(Logo))]
+    public class LogoDto : DtoBase
     {
         public int StoreId { get; set; }
-        public string PromotionPath { get; set; }
+        public string LogoPath { get; set; }
     }
 }

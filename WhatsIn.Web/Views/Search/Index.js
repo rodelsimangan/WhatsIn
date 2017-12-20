@@ -43,7 +43,7 @@
                                             + "<a href=\"" + "http://www.twitter.com/" + item.twitterPage + "\"><i class=\"fa fa-twitter\"></i></a>&nbsp;&nbsp;"
                                             + "<a href=\"" + "http://www.instagram.com/" + item.instagramPage + "\"><i class=\"fa fa-instagram\"></i></a>&nbsp;&nbsp;<br/>"
                                            // + "<i class=\"fa fa-link\"></i><a href=\"" + "http://localhost:61759/" + item.name + "\" target=\"_blank\">&nbsp;Click to view more..</a><br/>"
-                                            + "<i class=\"fa fa-link\"></i><a href=\"" + "http://localhost:61759/Pages/\" target=\"_blank\">&nbsp;Click to view more..</a><br/>"
+                                            + "<i class=\"fa fa-link\"></i><a href=\"" + "http://localhost:10179//Pages/\" target=\"_blank\">&nbsp;Click to view more..</a><br/>"
                                         + "</div>"
                                         + "<div class=\"rTableCell\"><input type=\"hidden\" class=\"userId\" />&nbsp;</div>"
                                      + "</div>";
@@ -51,8 +51,6 @@
                             $('#SearchResult').append(rows);
                         });
                     },
-
-
                 })
             );
 

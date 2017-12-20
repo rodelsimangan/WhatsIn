@@ -57,3 +57,9 @@
     display: none;
     padding: 5px;
 }
+
+.admin-content{
+    background-color:white; 
+    height:500px; 
+    max-height:100%;
+}

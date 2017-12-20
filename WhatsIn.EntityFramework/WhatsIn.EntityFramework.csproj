@@ -224,8 +224,18 @@
     <Compile Include="Migrations\201705231122071_Add_Category_To_StoreDetail.Designer.cs">
       <DependentUpon>201705231122071_Add_Category_To_StoreDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708161458479_Add_UserId_Promotions_Galleries.cs" />
+    <Compile Include="Migrations\201708161458479_Add_UserId_Promotions_Galleries.Designer.cs">
+      <DependentUpon>201708161458479_Add_UserId_Promotions_Galleries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040750112_Add_OwnWebsite_and_Address_In_Store.cs" />
+    <Compile Include="Migrations\201710040750112_Add_OwnWebsite_and_Address_In_Store.Designer.cs">
+      <DependentUpon>201710040750112_Add_OwnWebsite_and_Address_In_Store.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\DefaultCategoriesCreator.cs" />
+    <Compile Include="Migrations\SeedData\DefaultLocationsCreator.cs" />
     <Compile Include="Migrations\SeedData\StoreRoleBuilder.cs" />
     <Compile Include="WhatsInDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
@@ -325,6 +335,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705231122071_Add_Category_To_StoreDetail.resx">
       <DependentUpon>201705231122071_Add_Category_To_StoreDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708161458479_Add_UserId_Promotions_Galleries.resx">
+      <DependentUpon>201708161458479_Add_UserId_Promotions_Galleries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040750112_Add_OwnWebsite_and_Address_In_Store.resx">
+      <DependentUpon>201710040750112_Add_OwnWebsite_and_Address_In_Store.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

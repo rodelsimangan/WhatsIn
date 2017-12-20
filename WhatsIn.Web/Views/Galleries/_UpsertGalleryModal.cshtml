@@ -14,11 +14,12 @@
                 <input type="hidden" name="DateCreated" value="@Model.DateCreated" />
                 <input type="hidden" name="CreatedBy" value="@Model.CreatedBy" />
         }
+        <input type="hidden" name="UserId" value="@Model.UserId" />
         <!--div class="form-group form-md-line-input form-md-floating-label no-hint">
             <img id="imgGallery" alt="No Image" style="height:100px; width:100px;" />
         </div-->
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <img id="imgPreview" alt="No Image" height="200" width="200" src="@Url.Content(string.Concat("/Uploads/Galleries/",Model.GalleryPath))" /><br />
+            <img id="imgPreview" alt="750 x 500 pixels image recommended" height="200" width="200" src="@Url.Content(string.Concat("/Uploads/Galleries/",Model.GalleryPath))" /><br />
             <input type="file" id="UploadImg" /> <br /><br />
             <input type="hidden" id="txtImg" name="GalleryPath" value="@Model.GalleryPath" size="50" />
 

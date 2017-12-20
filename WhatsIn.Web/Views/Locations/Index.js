@@ -72,6 +72,7 @@
 
             if (expandgrid == true)
             {
+                abp.ui.setBusy($('#ProvinceArea'),
                 $.ajax({
                     type: "POST",
                     url: abp.appPath + 'Locations/GetLocations',
@@ -79,7 +80,7 @@
                     success: function (response) {
                         $('#DIV-LOCATIONS').html(response);
                     },
-                });
+                }));
 
           
 

@@ -10,7 +10,7 @@ namespace WhatsIn.Application.Services
 {
     public interface IPromotionAppService : IApplicationService
     {
-        Task<List<PromotionDto>> GetPromotions(string filter, bool isDeleted);
+        Task<List<PromotionDto>> GetPromotions(long userId, bool isDeleted);
         Task<PromotionDto> GetPromotion(long id);
         Task UpsertPromotion(PromotionDto input);
         Task DeletePromotion(long id);

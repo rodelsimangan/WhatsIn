@@ -34,9 +34,12 @@ namespace WhatsIn.Web.Controllers
                await GetProvinceDropdown();
                await GetLocationsDropdown();
                //SearchViewModel model = new SearchViewModel();
-               model.Stores = new List<StoreDto>();
-               //return SearchView(new SearchViewModel())
-               return View(model);   
+            //return SearchView(new SearchViewModel())
+                model.Stores = new List<StoreDto>();
+                var output = await _storeAppService.GetStores(null, false);
+                model.Stores = output;
+                //return  Json(model);
+            return View(model);   
            } 
 
       /*  public async Task<JsonResult> Index(SearchViewModel model)

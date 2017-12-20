@@ -14,6 +14,7 @@ using WhatsIn.Web.Models;
 
 namespace WhatsIn.Web.Controllers
 {
+    [AbpMvcAuthorize]
     public class LocationsController : WhatsInControllerBase
     {
         private readonly ILocationAppService _locationAppService;

@@ -24,7 +24,7 @@
     <RestorePackages>true</RestorePackages>
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
-    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1044,6 +1044,9 @@
     <Content Include="Views\Galleries\Index.js" />
     <Content Include="Views\Galleries\_UpsertGalleryModal.js" />
     <Content Include="Views\Pages\Index.js" />
+    <Content Include="Views\_Search\Index.css" />
+    <Content Include="Views\_Search\Index.js" />
+    <Content Include="Views\_Search\Index.min.css" />
     <Content Include="Views\Search\Index.css" />
     <Content Include="Views\Search\Index.js" />
     <Content Include="Views\Search\Index.min.css" />
@@ -1167,6 +1170,8 @@
     <Content Include="Views\Pages\_Index.cshtml" />
     <Content Include="Views\Pages\Index.cshtml" />
     <Content Include="Views\Pages\index.less" />
+    <Content Include="Views\_Search\Index.cshtml" />
+    <Content Include="Views\_Search\Index.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
